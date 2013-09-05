@@ -394,12 +394,11 @@ function NewArticle(){
                  }
 
 
-        $.post('article',data,function(response){
+        $.post(HOME+'admin/new/article',data,function(response){
 
             if(response.success) {
               //success
-              window.location = '../../article/'+response.articleTitle;
-
+              window.location = HOME+'article/'+response.articleTitle;
             }else{
               //fail
               form.attr('title','');

@@ -30,8 +30,10 @@ $f3->map( '/contact'        , 'Contact' );
 $f3->map( '/code'           , 'Code'    );
 $f3->map( '/about'          , 'About'   );
 $f3->map( '/article/@title' , 'Article' );
+$f3->map( '/feed'           , 'Feed'    );
+$f3->map( '/new/comment'    , 'Comment' );
+//$f3->map( '/delete/comment' , 'Comment' );
 
-$f3->map( '/feed' , 'Feed' );
 
 $f3->map( '/admin'                  , 'Admin'         );
 $f3->map( '/admin/dashboard'        , 'Dashboard'     );

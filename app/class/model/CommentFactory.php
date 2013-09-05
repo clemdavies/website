@@ -3,26 +3,29 @@
 Class CommentFactory extends Database{
 
 
-  private $maxComments = 5;
+  private $maxComments = 500;
 
   public function findByArticleId($articleId){
+    try{
+      $commentArray = self::$db->exec(
+          array('SELECT id,article_id,name,content,date,seen '.
+                'FROM comment '.
+                'WHERE article_id = :id '.
+                'ORDER BY date DESC LIMIT :count'),
+          array(  array(':id'=>$articleId,':count'=>500 )  )
+        );
 
-    $commentArray = self::$db->exec(
-        array('SELECT c.id,c.article_id,c.name,c.content,c.date,c.seen '.
-              'FROM comment as c,article as a '.
-              'WHERE c.article_id = a.id '.
-              'ORDER BY c.date DESC LIMIT :count'),
-        array(  array(':date'=>$date, ':id'=>$id,':count'=>$maxComments )  )
-      );
+      $commentModelArray = array();
+      foreach($commentArray as $commentMap){
 
-    $commentModelArray = array();
-    foreach($commentArray as $commentMap){
-
-      $comment = new CommentModel();
-      $comment->populateUsingDatabaseMap($commentMap);
-      $commentArray[] = $comment;
+        $comment = new CommentModel();
+        $comment->populateUsingDatabaseMap($commentMap);
+        $commentModelArray[] = $comment;
+      }
+      return $commentModelArray;
+    }catch(Exception $e){
+      return false;
     }
-    return $commentModelArray;
   }
 
 
@@ -59,10 +62,11 @@ Class CommentFactory extends Database{
     $comment->article_id  = $commentObject->getArticleId();
     $comment->name        = $commentObject->getName();
     $comment->content     = $commentObject->getContent();
-    $comment->date        = $commentObject->getDate();
+    $comment->date        = $commentObject->getDateTime();
     $comment->seen        = $commentObject->getSeen();
     if( $comment->save() ){
-        return true;
+      $commentObject->setId($comment->id);
+      return true;
     } else {
         return false;
     }

@@ -9,6 +9,7 @@ Class Article{
       if( $f3->set('article',$this->setArticle($f3)) ){
         // article exists
         $f3->set('title',$f3->get('article')->retrieveCleanTitle());
+        $f3->set('comments',$this->setComments($f3));
         $f3->set('content',Template::instance()->render('/article/full.html'));
         $f3->set('css',array('article'));
         $f3->set('js',array('article','plugins/justify','plugins/inputLabel'));
@@ -26,7 +27,16 @@ Class Article{
       $factory = new ArticleFactory($f3);
       $articleModel = $factory->selectByTitle($articleName);
 
-      return $articleModel;
+      if ($articleModel instanceof ArticleModel){
+        return $articleModel;
+      }
+    }
+
+    private function setComments($f3){
+      $article = $f3->get('article');
+      $factory = new CommentFactory($f3);
+      $commentModel = $factory->findByArticleId($article->getId());
+      return $commentModel;
     }
 
 }

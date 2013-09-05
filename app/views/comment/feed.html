@@ -1,13 +1,10 @@
-<div class='comments container left column'>
+<div class='foreground comments container left column'>
+
+  <input id='comment_button' type='button' value='post comment'/>
   <include href='comment/form.html' />
   <check if='{{isset(@comments)}}' >
-    <true>
       <repeat group='{{ @comments }}' value='{{ @comment }}'>
         <include href='comment/single.html'/>
       </repeat>
-    </true>
-    <false>
-      <div class='error'>no comments.</div>
-    </false>
   </check>
 </div>

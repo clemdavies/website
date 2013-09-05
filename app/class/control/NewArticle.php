@@ -17,7 +17,6 @@ Class NewArticle{
   public function post($f3){
     Authenticate::isAdmin($f3);
     Authenticate::isAjax($f3);
-    header("Content-Type: application/json");
 
     $f3->scrub($_POST['title']);
     $f3->scrub($_POST,'br; a; h3');
@@ -44,6 +43,7 @@ Class NewArticle{
       $f3->set('SESSION.newArticle',true);
     }
 
+    header("Content-Type: application/json");
     echo json_encode($result);
   }
 

@@ -1,11 +1,14 @@
 
 
-<div class='comment_form container foreground'>
-  <form id='comment_form' class='comment_form'>
+<div id='comment_form_container' class='foreground'>
+  <form id='comment_form'>
     <input id='name' class='label' name='name' type='text' value='name ( leave for nameless )' autocomplete='off' />
-    <textarea id='content' class='label' name='content' autocomplete='off'>comment</textarea>
-    <input class='submit' type='button' value='submit' />
-    <div class='js error'>please try again</div>
+    <textarea id='content' class='label' name='content' autocomplete='off' value='comment'>comment</textarea>
+    <div id='buttons'>
+      <input id='cancel' type='button' value='cancel' />
+      <input id='submit' type='button' value='submit' />
+    </div>
+    <div class='js error'></div>
     <div class='spacer'></div>
   </form>
 </div>

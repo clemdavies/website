@@ -1,20 +1,3 @@
-
-
-
-(function(){
-  Test = function(){
-    var privateVar = 'hi';
-
-    this.sayHello = function(){
-      console.log(privateVar);
-    }
-  }
-  Test.destroy = function(obj){
-
-  }
-})();
-
-
 /*
   admin.js
 */

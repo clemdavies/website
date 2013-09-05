@@ -34,7 +34,56 @@
 {
   margin:0 0 20px;
 }
-#comment_form
+#comment_form_container
 {
+  padding:10px;
   display:none;
 }
+#comment_form #buttons
+{
+  float:right;
+  height:30px;
+}
+#comment_form #bot
+{
+  width:100%;
+  color:#47CC80;
+}
+#comment_form .spacer
+{
+  clear:both;
+}
+.comments .comment
+{
+  padding:5px;
+}
+.comment .date
+{
+  float:right;
+}
+.comment .name
+{
+  float:left;
+}
+.comment .content
+{
+  clear:both;
+}
+
+.comment:nth-child(even)
+{
+
+  background-color:#242424;
+}
+.comment:nth-child(odd)
+{
+
+  background-color:#202020;
+}
+
+.js.error
+{
+  height:30px;
+  line-height:30px;
+}
+

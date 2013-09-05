@@ -71,7 +71,6 @@
                 'top'  : container.height() * -1.5
               });
           });
-          console.log(options.align);
           $(window).trigger('resize');
         };
 

@@ -29,6 +29,17 @@ grey:   #161616
 /* end flash */
 
 
+@-ms-viewport
+{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+@viewport
+{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+
 /* tablet, medium and large desktop screens */
 @media (min-width:500px)
 {
@@ -167,6 +178,10 @@ body
 {
     min-width:320px;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+textarea
+{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .content
