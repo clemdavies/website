@@ -1,0 +1,33 @@
+/*
+  splash.css
+*/
+body
+{
+  background-color:#47cc80;
+
+}
+
+.block
+{
+  display:inline;
+}
+
+.name
+{
+  font-family: 'Audiowide',Georgia, serif;
+  text-align:center;
+  color:black;
+}
+.name:hover
+{
+  color:white;
+  cursor:pointer;
+}
+
+.overlay
+{
+  background-color:#47cc80;
+  height:100%;
+  width:100%;
+}
+

@@ -1,0 +1,19 @@
+<div class='image container'>
+  <img class='circle image large' src='{{@HOME}}images/gears.png'/>
+</div>
+<div class='login container foreground'>
+  <check if="{{ isset(@redirect) }}">
+    <input class='redirect' type='hidden' location='{{@redirect}}' />
+  </check>
+  <div class='sub title'>login</div>
+  <form id='login' class='login form'>
+      <input id='name' class='label' name='name' type='text' value='username' autocomplete='off' />
+      <input id='pass' class='label' name='pass' type='password' value='password' autocomplete='off' />
+      <input class='submit' type='button' value='submit' />
+      <check if="{{ isset(@flash) }}">
+          <div class='flash {{@flash.type}}'>{{@flash.message}}</div>
+      </check>
+      <div class='js error'>please try again</div>
+      <div class='spacer'></div>
+  </form>
+</div>

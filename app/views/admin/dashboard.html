@@ -1,0 +1,48 @@
+
+  <div class='image container'>
+    <img class='circle image large' src='{{@HOME}}images/keyboard.png'/>
+  </div>
+
+  <div class='foreground dashboard container'>
+
+    <div class='page title'>
+      dashboard
+    </div>
+
+    <form id='logout' method='GET' action='{{@HOME}}admin/logout'>
+      <button id='logout' type='submit'>logout</button>
+    </form>
+
+    <div class='left column'>
+
+      <div id='new_article'>
+        <a href='{{@HOME}}admin/new/article'>post new article</a>
+      </div>
+      <div id='new_code'>
+        <a href='{{@HOME}}admin/new/code'>post new code</a>
+      </div>
+      <div id='new_category'>
+        <a href='{{@HOME}}admin/new/category'>post new category</a>
+      </div>
+
+    </div>
+
+    <div class='right column'>
+      <div class='sub title'>thoughts</div>
+      <check if='isset(@thoughts)'>
+        <repeat group="{{ @thoughts }}" value="{{ @thought }}">
+          {{@thought}}
+        </repeat>
+      </check>
+    </div>
+
+  <div class='spacer'></div>
+  </div>
+
+
+  <!--
+  <div class='controls'>
+   <img class='delete icon' src='{{@HOME}}images/delete_icon_inactive.png' alternate='{{@HOME}}images/delete_icon_active.png'/>
+   <img class='tick icon' src='{{@HOME}}images/tick_icon_inactive.png' alternate='{{@HOME}}images/tick_icon_active.png'/>
+ </div>
+ -->

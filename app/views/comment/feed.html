@@ -1,0 +1,13 @@
+<div class='comments container left column'>
+  <include href='comment/form.html' />
+  <check if='{{isset(@comments)}}' >
+    <true>
+      <repeat group='{{ @comments }}' value='{{ @comment }}'>
+        <include href='comment/single.html'/>
+      </repeat>
+    </true>
+    <false>
+      <div class='error'>no comments.</div>
+    </false>
+  </check>
+</div>

@@ -1,0 +1,17 @@
+# config files
+/config.*
+
+# uploaded files
+/file/*
+
+# images
+/images/*
+
+# tmp files
+/tmp/*
+
+# generated saved files
+*.*~
+
+#encryp
+/app/class/model/PasswordHash.php

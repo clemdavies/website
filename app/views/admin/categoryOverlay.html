@@ -1,0 +1,16 @@
+
+<div id='overlay' class='overlay'></div>
+
+<div id='overlay_form_container' class='overlay_form_container'>
+  <div id='overlay_form' class='overlay_form'>
+    <div class='icon close'>
+      <img class='image' src='{{@HOME}}images/close.png' alternate='{{@HOME}}images/close_highlight.png'/>
+    </div>
+    <div class='title'>new category</div>
+    <div class='form'>
+      <div class='js error'></div>
+      <input id='new_category_name' class='label' name='name' value='category name' type='text' autocomplete='off' />
+      <input id='new_category_image_upload' type="file" name="files[]" data-url="{{$HOME}}admin/new/category" disabled/>
+    </div>
+  </div>
+</div>

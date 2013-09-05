@@ -1,0 +1,204 @@
+/*
+  newarticle.css
+*/
+
+.new_article,
+.new_article input,
+.new_article textarea
+{
+  color:white;
+  background-color:#161616;
+}
+
+.category_selection.active
+{
+  background-color:#161616;
+}
+.category_selection.inactive
+{
+  display:table;
+}
+.category_selection
+{
+  margin:16px auto 14px;
+  position:relative;
+  z-index:2;
+}
+
+.category_item
+{
+  width:160px;
+  display:inline-block;
+}
+.category_item .border
+{
+  background-color:#47cc80;
+  z-index:-1;
+  position:absolute;
+  padding:5px;
+  display:none;
+
+  border-radius:50%;
+  height:150px;
+  width:150px;
+}
+
+.category_item .image
+{
+  margin:5px;
+  cursor:pointer;
+}
+.category_item .text
+{
+  color:black;
+  font-weight:bold;
+  text-transform:lowercase;
+  text-align:center;
+  font-size:100%;
+  line-height:20px;
+  cursor:pointer;
+}
+
+.category_item .text_border
+{
+  width:160px;
+  border-radius:8px;
+  position:absolute;
+  height:20px;
+  top:70px;
+  display:none;
+  cursor:pointer;
+  background-color:#47cc80;
+}
+
+.mCSB_container
+{
+  margin-bottom:0px !important;
+}
+.mCSB_draggerRail
+{
+  display:none !important;
+}
+.mCSB_scrollTools
+{
+  height:11px !important;
+}
+
+.new_article
+{
+  padding:10px;
+}
+.new_article textarea
+{
+  min-height:200px;
+  margin: 0 0 10px;
+}
+
+.date
+{
+  padding:1% 0;
+}
+
+.content
+{
+  line-height:150%;
+}
+
+
+.title
+{
+  font-weight:bold;
+  font-size:150%;
+  font-family: "Trebuchet MS",Helvetica,sans-serif;
+}
+
+
+.submit.hidden
+{
+  display:none;
+}
+
+.spacer
+{
+  clear:both;
+}
+.submit
+{
+  float:right;
+}
+
+.empty
+{
+  background-color:grey;
+}
+
+.overlay
+{
+  opacity: 0.6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 999
+}
+.overlay_form_container
+{
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:-400px;
+  min-width:300px;
+}
+.overlay_form
+{
+  background-color:#161616;
+  border:solid #47cc80 1px;
+  margin:0 20%;
+  height:100%;
+  color:white;
+  padding-bottom:30px;
+}
+.overlay_form input
+{
+  display:table;
+  border:solid white 1px;
+  background-color:#161616;
+  color:white;
+  width:50%;
+  margin:10px auto;
+  height:1.7em;
+}
+.overlay_form .error
+{
+  position:absolute;
+  top: -1.5em;
+  width:100%;
+  text-align:center;
+}
+.overlay_form .form
+{
+  position:relative;
+}
+.overlay_form .icon.close
+{
+  position:relative;
+  float:right;
+  left:15px;
+  bottom:15px;
+}
+
+.overlay_form .title
+{
+  clear:both;
+  position:relative;
+  bottom:20px;
+}
+.overlay_form .empty.circle
+{
+  display:table;
+  margin:5px auto 20px;
+  background-color:#808080;
+}
+

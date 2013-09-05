@@ -1,0 +1,33 @@
+/*
+  login.css
+*/
+
+.login.container
+{
+  width:30%;
+  padding:10px;
+  margin:0 auto;
+  min-width:250px;
+}
+.login.form
+{
+  padding:10px 0 0;
+}
+.submit
+{
+  float:right;
+}
+.submit.hidden
+{
+  display:none;
+}
+.spacer
+{
+  clear:both;
+}
+.error,
+.success
+{
+  float:left;
+  line-height:30px;
+}

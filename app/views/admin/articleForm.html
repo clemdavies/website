@@ -1,0 +1,25 @@
+
+<div class='new_article_container'>
+  <div id='category_selection' class='category_selection inactive selected'>
+
+    <div class='category_item' title='none'>
+      <div class='border'></div>
+      <img class='circle image large' category_id='0' category_name='none'  src='{{@HOME}}images/none.jpg' />
+    </div>
+
+  </div>
+  <form class='new_article' id='new_article' name='new_article' method='POST' action='{{@HOME}}admin/new/article'>
+
+    <input id='title' class='title label' name='title' type='text' value='title' />
+
+    <div class='date'>{{date('jMY')}}</div>
+
+    <textarea id='content' class='content label' name='content'>content</textarea>
+
+    <input class='submit hidden' type='submit' />
+    <div class='icon'>
+      <img id='submit' class='image submit' src='{{@HOME}}images/go.png' alternate='{{@HOME}}images/go_highlight.png' />
+    </div>
+    <div class='spacer'></div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+/*
+  contact.css
+*/
+
+.window
+{
+  margin:50px 0 0 ;
+  padding:10px;
+  color:#FFFFFF;
+}
+.window .content
+{
+  margin: 50px 0 0;
+  text-align:center;
+}
+.item
+{
+  display:inline-block;
+  margin:20px 50px;
+  line-height:30px;
+}
+.item .name
+{
+  margin-top:10px;
+  font-size:110%;
+}
+.subtitle
+{
+  font-size:120%;
+  margin: 0 0 20px 0;
+}
+a:hover
+{
+  text-decoration:underline;
+}

@@ -1,0 +1,25 @@
+
+<div class='new_article_container'>
+  <div id='category_selection' class='category_selection inactive selected'>
+
+    <div class='category_item' title='none' category_id='{{@article->retrieveCategoryId()}}'>
+      <div class='border'></div>
+      <img class='circle image large' src='{{@HOME}}images/{{@article->retrieveCategoryImage()}}' />
+    </div>
+
+  </div>
+  <form class='new_article' id='new_article' article-id='{{@article->getId()}}' name='new_article' method='POST' action='{{@HOME}}admin/edit/article'>
+
+    <input id='title' class='title' name='title' type='text' value='{{@article->retrieveCleanTitle()}}' />
+
+    <div class='date'>{{@article->formatDate()}}</div>
+
+    <textarea id='content' class='content' name='content'>{{@article->retrieveTextAreaContent()}}</textarea>
+
+    <input class='submit hidden' type='submit' />
+    <div class='icon'>
+      <img id='submit' class='image submit' src='{{@HOME}}images/go.png' alternate='{{@HOME}}images/go_highlight.png' />
+    </div>
+    <div class='spacer'></div>
+  </form>
+</div>

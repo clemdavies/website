@@ -1,0 +1,16 @@
+/*
+  dashboard.css
+*/
+.right.column
+{
+  float:right;
+}
+.left.column
+{
+  float:left;
+}
+
+.spacer
+{
+  clear:both;
+}

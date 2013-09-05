@@ -1,0 +1,13 @@
+
+<check if="{{ isset(@categories) }}">
+  <div class='category_item upload' title='new category'>
+      <div class='border'></div>
+      <div class='empty circle image large'></div>
+  </div>
+  <repeat group="{{ @categories }}" value="{{ @category }}">
+  <div class='category_item' category_id='{{@category->getId()}}' category_name='{{@category->getName()}}' title='{{@category->getName()}}' >
+      <div class='border'></div>
+      <img class='circle image large' src='{{@HOME}}images/{{@category->getImage()}}' />
+  </div>
+  </repeat>
+</check>

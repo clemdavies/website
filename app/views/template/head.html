@@ -1,0 +1,47 @@
+<head>
+<title>Clem Davies
+  <check if='{{ isset(@title) }}'>
+    <true> - {{@title}}</true>
+  </check>
+</title>
+  <script src='{{@HOME}}config.js' type='text/javascript' language='javascript'></script>
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/clearfix.css'/>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/template.css'/>
+  <check if='{{ isset(@css) }}'>
+      <repeat group='{{ @css }}' value='{{ @csspath }}'>
+          <link rel='stylesheet' type='text/css' href='{{@HOME.'css/'.@csspath.'.css'}}'/>
+      </repeat>
+  </check>
+  <script src='{{@HOME}}js/jquery-1.9.1.min.js' type='text/javascript' language='javascript'></script>
+  <script src='{{@HOME}}js/template.js' type='text/javascript' language='javascript'></script>
+  <script src='{{@HOME}}js/plugins/altImage.js' type='text/javascript' language='javascript'></script>
+  <check if='{{ isset(@js) }}'>
+      <repeat group='{{ @js }}' value='{{ @jspath }}'>
+          <script src='{{@HOME}}js/{{@jspath}}.js' language='javascript' type='text/javascript'></script>
+      </repeat>
+  </check>
+  <check if='{{ isset(@plugins) }}'>
+      <repeat group='{{ @plugins }}' value='{{ @plugin }}'>
+        <check if='{{ isset(@plugin["css"]) }}'>
+          <repeat group='{{ @plugin["css"] }}' value='{{ @plugincss }}'>
+            <link rel='stylesheet' type='text/css' href='{{@HOME}}plugins/{{@plugin["dir"]}}/{{@plugincss}}.css'/>
+          </repeat>
+        </check>
+        <check if='{{ isset(@plugin["js"]) }}'>
+          <repeat group='{{ @plugin["js"] }}' value='{{ @pluginjs }}'>
+            <script src='{{@HOME}}plugins/{{@plugin["dir"]}}/{{@pluginjs}}.js' language='javascript' type='text/javascript'></script>
+          </repeat>
+        </check>
+      </repeat>
+  </check>
+  <check if='{{Authenticate::ifAdmin(@FFF)}}'>
+    <link rel='stylesheet' type='text/css' href='{{@HOME}}css/admin.css' />
+    <script src='{{@HOME}}js/admin.js' language='javascript' type='text/javascript' ></script>
+    <script src='{{@HOME}}js/plugins/overlay.js' language='javascript' type='text/javascript' ></script>
+  </check>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/jquery-ui-1.10.3.custom.css'/>
+  <script src='{{@HOME}}js/jquery-ui-1.10.3.custom.min.js' language='javascript' type='text/javascript'></script>
+
+  <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+</head>
