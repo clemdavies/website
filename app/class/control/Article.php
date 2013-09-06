@@ -14,6 +14,12 @@ Class Article{
         $f3->set('css',array('article'));
         $f3->set('js',array('article','plugins/justify','plugins/inputLabel'));
 
+        /*
+        if (Authenticate::ifAdmin($f3)){
+          $f3->push('js','deleteComment');
+        }
+        */
+
       }else{
         // invalid article title
         $f3->set('content',Template::instance()->render('/article/missing.html'));

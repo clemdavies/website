@@ -20,7 +20,7 @@
 {
   text-align:left;
 }
-.date
+.article .date
 {
   padding: 0 0 1%;
 }
@@ -34,6 +34,17 @@
 {
   margin:0 0 20px;
 }
+#panel
+{
+  padding:10px;
+  height:30px;
+}
+#panel #counter
+{
+  float:right;
+  line-height:30px;
+}
+
 #comment_form_container
 {
   padding:10px;
@@ -44,11 +55,29 @@
   float:right;
   height:30px;
 }
+#comment_form #bot,
+#comment_form #count
+{
+  display:inline-block;
+  width:49.5%;
+}
 #comment_form #bot
 {
-  width:100%;
   color:#47CC80;
 }
+#comment_form #count
+{
+  text-align:right;
+}
+#count.valid
+{
+  color:#47CC80;
+}
+#count.invalid
+{
+  color:#ffbe59;
+}
+
 #comment_form .spacer
 {
   clear:both;
@@ -60,10 +89,12 @@
 .comment .date
 {
   float:right;
+  font-size:80%;
 }
 .comment .name
 {
   float:left;
+  color:#47CC80;
 }
 .comment .content
 {
@@ -79,6 +110,14 @@
 {
 
   background-color:#202020;
+}
+.comment
+{
+  margin-bottom:5px;
+}
+.comment.active
+{
+  border:solid green 2px;
 }
 
 .js.error

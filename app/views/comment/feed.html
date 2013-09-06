@@ -1,6 +1,10 @@
 <div class='foreground comments container left column'>
-
-  <input id='comment_button' type='button' value='post comment'/>
+  <div id='panel'>
+    <input id='comment_button' type='button' value='post comment'/>
+    <check if='{{isset(@comments)}}' >
+      <div id='counter'>{{count(@comments)}} {{TemplateUtility::pluralize(count(@comments),"comment")}}</div>
+    </check>
+  </div>
   <include href='comment/form.html' />
   <check if='{{isset(@comments)}}' >
       <repeat group='{{ @comments }}' value='{{ @comment }}'>

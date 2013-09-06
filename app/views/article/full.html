@@ -8,8 +8,8 @@
       <check if='{{Authenticate::ifAdmin(@FFF)}}'>
         <div class='admin'>
           <div class='controls'>
-            <input id='edit' type='button' value='edit' />
-            <input id='delete' type='button' value='delete' />
+            <input id='edit_article' type='button' value='edit' />
+            <input id='delete_article' type='button' value='delete' />
           </div>
         </div>
       </check>
@@ -30,7 +30,7 @@
 
 <check if='{{Authenticate::ifAdmin(@FFF)}}'>
     <div class='alert'>
-      <h2>Are you sure you want to delete this article/thought?</h2>
+      <h2>Are you sure you want to delete this article?</h2>
       <input id='yes' type='button' value='yes'/>
       <input id='no' type='button' value='no'/>
     </div>

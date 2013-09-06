@@ -59,6 +59,7 @@ $(document).ready(function(){
       function bindCommentDelete(){
         $('#delete_comment').one('click',function(){
             console.log(commentDeleted);
+            
         });
       }
 

@@ -68,7 +68,7 @@ Class CommentModel{
 
 
   public function formatDate(){
-    return date('jMY',strtotime($this->dateTime));
+    return date('jS M Y',strtotime($this->dateTime));
   }
   public function newDateTime(){
     $this->dateTime = date('Y-m-d H:i:s');

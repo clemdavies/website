@@ -2,8 +2,9 @@
 
 <div id='comment_form_container' class='foreground'>
   <form id='comment_form'>
-    <input id='name' class='label' name='name' type='text' value='name ( leave for nameless )' autocomplete='off' />
-    <textarea id='content' class='label' name='content' autocomplete='off' value='comment'>comment</textarea>
+    <input id='name' class='label' name='name' type='text' value='name ( leave for nameless )' autocomplete='off' maxlength='25' />
+    <textarea id='content' class='label' name='content' autocomplete='off' value='comment' maxlength='300'>comment</textarea>
+    <div id='count' class='valid'>140 chars left</div>
     <div id='buttons'>
       <input id='cancel' type='button' value='cancel' />
       <input id='submit' type='button' value='submit' />

@@ -298,8 +298,43 @@ body a
   margin:auto;
   padding:20px 0;
 }
+input.delete.small[type=button],
+input.delete.small[type=submit]
+{
+  padding:2px !important;
+}
 
+input.delete[type=button],
+input.delete[type=submit]
+{
+  background-color:#ff9292 !important;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF5959), to(#ff9292));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #ff9292, #FF5959);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #ff9292, #FF5959);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #ff9292, #FF5959);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #ff9292, #FF5959);
+}
 
+input.delete[type=button]:hover,
+input.delete[type=submit]:hover
+{
+  background-color:#FF5959 !important;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff9292), to(#FF5959));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #FF5959, #ff9292);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #FF5959, #ff9292);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #FF5959, #ff9292);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #FF5959, #ff9292);
+}
 input[type=button],
 input[type=submit]
 {
@@ -342,7 +377,6 @@ input[type=submit]:hover
   -moz-box-shadow:    inset 0.2px 0.2px 0.5px 0.5px black;
   -webkit-box-shadow: inset 0.2px 0.2px 0.5px 0.5px black;
   box-shadow:         inset 0.2px 0.2px 0.5px 0.5px black;
-
 }
 
 

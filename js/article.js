@@ -7,87 +7,14 @@ $(document).ready(function(){
     $('body').inputLabel();
 
     new Form();
-    /*
-
-    var commentButton = $('#comment_button');
-    var container = $('#comment_form_container');
-    var form      = $('#comment_form');
-    var name      = $('#comment_form #name');
-    var content   = $('#comment_form #content');
-
-    commentButton.on('click',function(){
-        $(this).hide();
-        container.show();
-    });
-
-    $('#cancel').on('click',function(){
-        container.hide();
-        name.val(name.attr('value'));
-        name.toggleClass('label',true);
-        content.val(content.attr('value'));
-        content.toggleClass('label',true);
-        commentButton.show();
-    });
-
-
-
-    //function bindSubmit(){
-
-    $('#submit').one('click',function(){
-        if(content.hasClass('label') || content.val() === '') {
-          $('.js.error').text('please type a comment');
-          $('.js.error').show();
-        }else{
-          submitToServer();
-        }
-    });
-
-    //}
-
-    function submitToServer(){
-
-      var nameVal;
-      if(name.hasClass('label') || name.val() === '') {
-        nameVal = 'nameless';
-      }else{
-        nameVal = name.val();
-      }
-
-      var contentVal = content.val();
-      var articleId = $('#article_info').attr('article-id');
-
-      var data = {
-        comment_name:    nameVal,
-        comment_content: contentVal,
-        article_id:      articleId
-      }
-      console.log(data);
-      $.post(HOME+'new/comment',data,function(response){
-
-          console.log(response.success);
-
-          if(response.success) {
-            $('.comments.container .error').remove();
-            $('.comments.container').prepend(response.comment);
-            container.hide();
-            name.val(name.attr('value'));
-            name.toggleClass('label',true);
-            content.val(content.attr('value'));
-            content.toggleClass('label',true);
-            commentButton.show();
-          }else{
-            $('.js.error').text('please try again');
-            $('.js.error').show();
-          }
-      });
-    }
-    */
 
 
 });
 
 function Form(){
   var base = this;
+  var header         = $('.comments.container #panel');
+  var commentsCounter = $('.comments.container #counter');
   var commentButton  = $('#comment_button');
   var formContainer  = $('#comment_form_container');
   var commentForm    = $('#comment_form');
@@ -95,6 +22,7 @@ function Form(){
   var commentContent = $('#comment_form #content');
   var commentCheck;
   var error = $('.js.error');
+  var charCount = $('#comment_form #count');
 
   function construct(self){
     self.insertCheckBox();
@@ -115,7 +43,7 @@ function Form(){
 
   this.bindCommentButton = function(){
     commentButton.on('click',function(){
-        commentButton.hide();
+        header.hide();
         base.bindSubmit();
         base.bindCancel();
         base.bindHideError();
@@ -126,12 +54,13 @@ function Form(){
     $('#submit').one('click',function(){
         if(commentContent.hasClass('label') || commentContent.val() === '') {
           base.showError('please type a comment');
+        }else if(charCount.hasClass('invalid')){
+          base.showError('please shorten comment');
         }else if(!( commentCheck.is(':checked') )){
           base.showError('bot detected!');
         }else{
           base.submitToServer();
         }
-        console.log(commentCheck);
     });
   }
   this.bindCancel = function(){
@@ -146,16 +75,53 @@ function Form(){
         commentName.toggleClass('label',true);
         commentContent.val(commentContent.attr('value'));
         commentContent.toggleClass('label',true);
-        commentButton.show();
+        header.show();
   }
 
   this.bindHideError = function(){
     commentContent.on('keypress',function(){
         base.hideError();
+        //if(commentContent.val().length == 0) {
+          //base.showCharCount();
+        //}
+    });
+    commentContent.on('keyup',function(){
+        //if(commentContent.val().length > 0) {
+
+          base.showCharCount();
+        //}
     });
     commentCheck.on('change',function(){
         base.hideError();
     });
+  }
+  this.hideCharCount = function(){
+    charCount.text('');
+  }
+  this.showCharCount = function(){
+    var text;
+    var charsLeft = 140 - commentContent.val().length;
+    if(charsLeft < 0) {
+      // over char limit
+        var charsOver = charsLeft * -1;
+        charCount.toggleClass('valid',false);
+        charCount.toggleClass('invalid',true);
+        if(charsOver === 1) {
+          text = String(charsOver) + ' char over';
+        }else{
+          text = String(charsOver) + ' chars over';
+        }
+    }else{
+      //under char limit
+        charCount.toggleClass('valid',true);
+        charCount.toggleClass('invalid',false);
+        if(charsLeft === 1) {
+          text = String(charsLeft) + ' char left';
+        }else{
+          text = String(charsLeft) + ' chars left';
+        }
+    }
+    charCount.text(text);
   }
   this.hideError = function(){
     if (error.is(':visible')) {
@@ -196,11 +162,20 @@ function Form(){
 
           if(response.success) {
             formContainer.after(response.comment);
+            base.resetCounter();
             base.removeForm();
           }else{
             base.showError('please try again');
           }
       });
+    }
+    this.resetCounter = function(){
+      numberOfComments = $('.comment').length;
+      var text = String(numberOfComments) + ' comment';
+      if(numberOfComments != 1) {
+        text += 's';
+      }
+      commentsCounter.text(text);
     }
 
 
