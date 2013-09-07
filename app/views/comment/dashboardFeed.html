@@ -1,0 +1,16 @@
+<div class='foreground comments container left column'>
+  <h2>Comments</h2>
+
+  <check if='{{isset(@articles)}}' >
+    <div>{{count(@articles)}} {{TemplateUtility::pluralize( count(@articles), 'article' )}}</div>
+      <repeat group='{{ @articles }}' value='{{ @article }}'>
+      <a class='article_title' href='{{@HOME}}article/{{@article->getTitle()}}'>{{@article->retrieveCleanTitle()}}</a>
+      <div id='panel'>
+        <div id='counter'>{{count(@article->getComments())}} new {{TemplateUtility::pluralize(count(@article->getComments()),"comment")}}</div>
+      </div>
+      <repeat group='{{@article->getComments()}}' value='{{@comment}}'>
+        <include href='comment/single.html'/>
+      </repeat>
+  </check>
+
+</div>

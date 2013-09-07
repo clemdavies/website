@@ -255,6 +255,24 @@ Class ArticleFactory extends Database{
     }
   }
 
+  public function selectTitleById($id){
+    try{
+      $article = self::$db->exec(
+            array('SELECT a.id,a.category_id,a.title,a.content,a.date,c.name as category_name,c.image_filename as category_image_filename '.
+                  'FROM article as a,category as c '.
+                  'WHERE a.id = :id  AND a.category_id = c.id '),
+            array(  array(':id'=>$id)  )
+          );
+      $articleModel = new ArticleModel();
+      $articleModel->populateUsingDatabaseMap($article[0]);
+      return $articleModel;
+    }catch(Exception $e){
+      echo $e;
+      return false;
+    }
+  }
+
+
   /* string $category
      int $count       - Number of article objects to return.
      int $startId
@@ -272,16 +290,6 @@ Class ArticleFactory extends Database{
       //traversing forward from latest
 
     }
-  }
-
-  public function update($articleObject){
-    if(!( $articleObject instanceof ArticleModel )){
-      //wrong object type
-      return false;
-    }
-
-
-
   }
 
 

@@ -14,7 +14,7 @@
         var resize = function(){};
 
         base.showOverlay = function(){
-          // hides element then hides overlay
+          $element.children(options.text.selector).text(options.text.content);
           overlayElement.show();
 
           var offset = function(){
@@ -58,8 +58,14 @@
           // merge options recursively, maintaining integrity of private options
           options = $.extend(true,{},$.overlay.defaultOptions, userOptions, $.overlay.privateOptions);
 
-          $element.before($('<div>').addClass(options.classname.overlay).css(options.css.overlay));
-          $element.wrap($('<div>').addClass(options.classname.container).css(options.css.container));
+          /* only wraps element with container and inserts overlay once
+             allowing use of same element for different alerts */
+          if( $element.parent('.'+options.classname.container).length === 0 ) {
+            $element.before($('<div>').addClass(options.classname.overlay).css(options.css.overlay));
+            $element.wrap($('<div>').addClass(options.classname.container).css(options.css.container));
+          }
+
+          $element.children(options.text.selector).text(options.text.content);
 
           container      = $('.'+options.classname.container);
           overlayElement = $('.'+options.classname.overlay);
@@ -115,7 +121,12 @@
         }
       },
       align:'body',
-      speed:500
+      speed:500,
+      text:
+      {
+        selector:'h2',
+        content:'default alert'
+      }
     };
 
     $.fn.overlay = function(options){

@@ -7,7 +7,7 @@ Class CommentFactory extends Database{
 
   public function findByArticleId($articleId){
     try{
-      $commentArray = self::$db->exec(
+      $commentArray = Database::$db->exec(
           array('SELECT id,article_id,name,content,date,seen '.
                 'FROM comment '.
                 'WHERE article_id = :id '.
@@ -28,19 +28,79 @@ Class CommentFactory extends Database{
     }
   }
 
-
-
-  public function deleteComment($id){
+  public function allUnseenComments(){
     try{
-      $comment = new DB\SQL\Mapper(self::$db,'comment');
-      $comment->load(array('id=?',$id));
+      $commentArray = Database::$db->exec(
+          array('SELECT id,article_id,name,content,date,seen '.
+                'FROM comment WHERE seen = :seen ORDER BY date DESC'),
+          array( array( ':seen'=>'0' ))
+      );
+
+      $commentModelArray = array();
+      foreach($commentArray as $commentMap){
+        $comment = new CommentModel();
+        $comment->populateUsingDatabaseMap($commentMap);
+        $commentModelArray[] = $comment;
+      }
+      return $commentModelArray;
+    }catch(Exception $e){
+      return false;
+    }
+  }
+
+
+  public function markAsSeen($commentObject){
+    if(!( $commentObject instanceof CommentModel )){
+      //wrong object type
+      return false;
+    }
+    try{
+
+      $comment = new DB\SQL\Mapper(Database::$db,'comment');
+      $comment->load( array('id=?',$commentObject->getId()) );
+      $comment->seen = 1;
+      $comment->save();
+
+      if ($comment->seen == 0){
+        return false;
+      }
+      return true;
+    } catch(Exception $e) {
+      return false;
+    }
+
+  }
+
+
+  public function selectById($id){
+    try{
+      $comment = new DB\SQL\Mapper(Database::$db,'comment');
+      $comment->load( array('id=?',$id) );
+      if ($comment->dry() ){
+        return false;
+      }
+      return true;
+    } catch(Exception $e) {
+      return false;
+    }
+  }
+
+
+  public function delete($commentObject){
+    if(!( $commentObject instanceof CommentModel )){
+      //wrong object type
+      return false;
+    }
+    try{
+      $comment = new DB\SQL\Mapper(Database::$db,'comment');
+      $comment->load(array('id=?',$commentObject->getId()));
 
       $comment->erase();
 
-      if (!( $this->selectById($id) )){
-        return true;
+      if ( $this->selectById($commentObject->getId()) ){
+        return false;
       }
-      return false;
+      return true;
     }catch(Exception $e){
       return false;
     }
@@ -58,7 +118,7 @@ Class CommentFactory extends Database{
       return false;
     }
 
-    $comment = new DB\SQL\Mapper(self::$db,'comment');
+    $comment = new DB\SQL\Mapper(Database::$db,'comment');
     $comment->article_id  = $commentObject->getArticleId();
     $comment->name        = $commentObject->getName();
     $comment->content     = $commentObject->getContent();

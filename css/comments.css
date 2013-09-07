@@ -1,0 +1,41 @@
+/*
+  comments.css
+*/
+
+
+.comments .comment
+{
+  padding:5px;
+}
+.comment .date
+{
+  float:right;
+  font-size:80%;
+}
+.comment .name
+{
+  float:left;
+  color:#47CC80;
+}
+.comment .content
+{
+  clear:both;
+}
+
+.comment:nth-child(even)
+{
+  background-color:#242424;
+}
+.comment:nth-child(odd)
+{
+  background-color:#202020;
+}
+.comment
+{
+  margin-bottom:5px;
+}
+.comment.active
+{
+  border:solid #ff9292 2px;
+}
+

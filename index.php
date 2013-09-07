@@ -32,7 +32,8 @@ $f3->map( '/about'          , 'About'   );
 $f3->map( '/article/@title' , 'Article' );
 $f3->map( '/feed'           , 'Feed'    );
 $f3->map( '/new/comment'    , 'Comment' );
-//$f3->map( '/delete/comment' , 'Comment' );
+$f3->map( '/delete/comment' , 'DeleteComment' );
+$f3->map( '/seen/comment' , 'SeenComment' );
 
 
 $f3->map( '/admin'                  , 'Admin'         );

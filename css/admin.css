@@ -96,3 +96,14 @@
   text-align:center;
 }
 
+#comment_controls input:first-child
+{
+  margin-right:5px;
+}
+
+
+#comment_controls input:last-child
+{
+  margin-left:5px;
+}
+

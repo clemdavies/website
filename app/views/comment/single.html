@@ -1,5 +1,5 @@
 
-<div class='comment' comment-id='{{@comment->getId()}}'>
+<div class='comment' comment-id='{{@comment->getId()}}' seen='{{@comment->getSeen()}}'>
   <div class='name'>{{@comment->getName()}}</div>
   <div class='date'>{{@comment->formatDate()}}</div>
   <div class='content'>{{@comment->getContent()}}</div>

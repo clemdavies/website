@@ -9,6 +9,9 @@ Class ArticleModel{
   // CategoryModel object
   private $category;
 
+  // CommentModel object array
+  private $comments;
+
   public function populateUsingDatabaseMap($dbResultArray){
     $this->id            = $dbResultArray['id'];
     $this->title         = $dbResultArray['title'];
@@ -17,6 +20,16 @@ Class ArticleModel{
 
     $this->category      = new CategoryModel();
     $this->category->populateUsingArticleDatabaseMap($dbResultArray);
+  }
+
+  public function getComments(){
+    return $this->comments;
+  }
+  public function setComments($newComments){
+    $this->comments = $newComments;
+  }
+  public function appendComments($newComment){
+    $this->comments[] = $newComment;
   }
 
   public function getId(){

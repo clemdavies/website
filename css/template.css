@@ -298,8 +298,8 @@ body a
   margin:auto;
   padding:20px 0;
 }
-input.delete.small[type=button],
-input.delete.small[type=submit]
+input.small[type=button],
+input.small[type=submit]
 {
   padding:2px !important;
 }

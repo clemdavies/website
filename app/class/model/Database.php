@@ -2,15 +2,15 @@
 
 Class Database{
 
-    protected static $db;
+    public static $db;
 
     public function __construct($f3){
       //port = 3306
-            self::$db=new DB\SQL(
-                'mysql:host='.$f3->get('db-host').';port='.$f3->get('db-port').';dbname='.$f3->get('db-name'),
-                $f3->get('db-user'),
-                $f3->get('db-pass')
-            );
+        self::$db=new DB\SQL(
+              'mysql:host='.$f3->get('db-host').';port='.$f3->get('db-port').';dbname='.$f3->get('db-name'),
+              $f3->get('db-user'),
+              $f3->get('db-pass')
+          );
 
     }
 
@@ -24,7 +24,7 @@ Class Database{
 
 
         try{
-            $admin = new DB\SQL\Mapper(self::$db,'admin');
+            $admin = new DB\SQL\Mapper(Database::$db,'admin');
             $admin->load( array('username=?',$name) );
 
 
@@ -46,7 +46,7 @@ Class Database{
 
         $hashPass = PasswordHash::create_hash($pass);
 
-        $admin = new DB\SQL\Mapper(self::$db,'admin');
+        $admin = new DB\SQL\Mapper(Database::$db,'admin');
         $admin->username = 'pig';
         $admin->author = 'Clem Davies';
         $admin->password = $hashPass;
