@@ -193,7 +193,15 @@ body a
 {
   text-decoration:none;
   color:#d1338e;
+  border:none;
+  border-width: 0;
 }
+a img
+{
+  border:none;
+  border-width: 0;
+}
+
 .header
 {
     min-height:60px;

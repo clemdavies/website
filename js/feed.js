@@ -200,7 +200,6 @@ function Feed(){
     self.findLastArticle();
     self.bindClickScrollImageEvent();
     self.bindHoverArticleEvent();
-    self.bindClickArticleEvent();
   }
 
   this.bindClickScrollImageEvent = function(){
@@ -219,18 +218,9 @@ function Feed(){
         $(this).removeClass('highlight');
         $(this).siblings('.border').removeClass('highlight');
     });
+
   }
 
-  this.bindClickArticleEvent = function(){
-
-    $('body').on('click','.article_link',function(){
-        window.location = $(this).attr('href');
-    });
-    $('.content').on('click','category.image.border, .article .border',function(){
-        $(this).addClass('highlight');
-        $(this).siblings('.border').addClass('highlight');
-    });
-  }
 
 
 

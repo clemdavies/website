@@ -15,3 +15,8 @@
 
 #encryp
 /app/class/model/PasswordHash.php
+
+#secondary app
+/app/expansive/*
+/app/views/expansive/*
+/css/expansive/*

@@ -7,9 +7,9 @@ Class Database{
     public function __construct($f3){
       //port = 3306
         self::$db=new DB\SQL(
-              'mysql:host='.$f3->get('db-host').';port='.$f3->get('db-port').';dbname='.$f3->get('db-name'),
-              $f3->get('db-user'),
-              $f3->get('db-pass')
+              'mysql:host='.$f3->get('dbhost').';port='.$f3->get('dbport').';dbname='.$f3->get('dbname'),
+              $f3->get('dbuser'),
+              $f3->get('dbpass')
           );
 
     }

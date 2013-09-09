@@ -22,6 +22,15 @@ if (get_magic_quotes_gpc()) {
     unset($process);
 }
 
+/* START EXPANSIVE DATABASE APP START */
+
+$f3->map( '/expansive'                , 'ExpHome'         );
+$f3->map( '/expansive/@type'          , 'ExpClient'       );
+$f3->map( '/expansive/new/client'     , 'ExpNewClient'    );
+$f3->map( '/expansive/new/type'       , 'ExpNewType'      );
+$f3->map( '/expansive/new/attribute'  , 'ExpNewAttribute' );
+
+/* END EXPANSIVE DATABASE APP END */
 
 //$f3->map( '/'              , 'Splash'  );
 $f3->map( '/'               , 'Home'    );
@@ -33,7 +42,7 @@ $f3->map( '/article/@title' , 'Article' );
 $f3->map( '/feed'           , 'Feed'    );
 $f3->map( '/new/comment'    , 'Comment' );
 $f3->map( '/delete/comment' , 'DeleteComment' );
-$f3->map( '/seen/comment' , 'SeenComment' );
+$f3->map( '/seen/comment'   , 'SeenComment' );
 
 
 $f3->map( '/admin'                  , 'Admin'         );

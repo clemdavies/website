@@ -3,23 +3,22 @@
     Clem Davies
   </div>
   <div>
-    <div class='icon' title='home'>
-        <img class='image' href='{{@HOME}}' src='{{@HOME}}images/home_icon_black.png' alternate='{{@HOME}}images/home_icon_white.png' alt='home' />
-    </div>
-    <div class='icon' title='archive'>
-        <img class='image' href='{{@HOME}}archive' src='{{@HOME}}images/archive_icon_black.png' alternate='{{@HOME}}images/archive_icon_white.png' alt='archive' />
-    </div>
-    <div class='icon' title='contact'>
-        <img class='image' href='{{@HOME}}contact' src='{{@HOME}}images/contact_icon_black.png' alternate='{{@HOME}}images/contact_icon_white.png' alt='contact' />
-    </div>
-    <div class='icon' title='code'>
-        <img class='image' href='{{@HOME}}code' src='{{@HOME}}images/code_icon_black.png' alternate='{{@HOME}}images/code_icon_white.png' alt='code' />
-    </div>
-
+    <a class='icon'  href='{{@HOME}}' title='home'>
+        <img class='image' src='{{@HOME}}images/home_icon_black.png' alternate='{{@HOME}}images/home_icon_white.png' alt='home' />
+    </a>
+    <a class='icon'  href='{{@HOME}}archive' title='archive'>
+        <img class='image' src='{{@HOME}}images/archive_icon_black.png' alternate='{{@HOME}}images/archive_icon_white.png' alt='archive' />
+    </a>
+    <a class='icon' href='{{@HOME}}contact' title='contact'>
+        <img class='image' src='{{@HOME}}images/contact_icon_black.png' alternate='{{@HOME}}images/contact_icon_white.png' alt='contact' />
+    </a>
+    <a class='icon' href='{{@HOME}}code' title='code'>
+        <img class='image' src='{{@HOME}}images/code_icon_black.png' alternate='{{@HOME}}images/code_icon_white.png' alt='code' />
+    </a>
     <check if='{{ Authenticate::ifAdmin(@FFF) }}'>
-      <div class='icon' title='dashboard'>
-          <img class='image' href='{{@HOME}}admin/dashboard' src='{{@HOME}}images/cog_black.png' alternate='{{@HOME}}images/cog_white.png' alt='dashboard' />
-      </div>
+      <a class='icon' href='{{@HOME}}admin/dashboard' title='dashboard'>
+          <img class='image' src='{{@HOME}}images/cog_black.png' alternate='{{@HOME}}images/cog_white.png' alt='dashboard' />
+      </a>
     </check>
   </div>
 </div>

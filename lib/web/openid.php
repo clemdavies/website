@@ -1,7 +1,7 @@
 <?php
 
 /*
-	Copyright (c) 2009-2012 F3::Factory/Bong Cosca, All rights reserved.
+	Copyright (c) 2009-2013 F3::Factory/Bong Cosca, All rights reserved.
 
 	This file is part of the Fat-Free Framework (http://fatfree.sf.net).
 
@@ -23,14 +23,16 @@ class OpenID extends \Magic {
 		E_EndPoint='Unable to find OpenID provider';
 	//@}
 
-	var
+	protected
+		//! OpenID provider endpoint URL
+		$url,
 		//! HTTP request parameters
 		$args=array();
 
 	/**
-		Determine OpenID provider
-		@return string|FALSE
-		@param $proxy string
+	*	Determine OpenID provider
+	*	@return string|FALSE
+	*	@param $proxy string
 	**/
 	protected function discover($proxy) {
 		// Normalize
@@ -47,6 +49,8 @@ class OpenID extends \Magic {
 		// HTML-based discovery of OpenID provider
 		$req=\Web::instance()->
 			request($this->args['identity'],array('proxy'=>$proxy));
+		if (!$req)
+			return FALSE;
 		$type=array_values(preg_grep('/Content-Type:/',$req['headers']));
 		if ($type &&
 			preg_match('/application\/xrds\+xml|text\/xml/',$type[0]) &&
@@ -75,14 +79,14 @@ class OpenID extends \Magic {
 			// Parse document
 			while ($ptr<$len)
 				if (preg_match(
-					'/^<link\b((?:\s+\w+s*=\s*'.
-					'(?:"(?:.+?)"|\'(?:.+?)\'))*)\s*\/?>/is',
+					'/^<link\b((?:\h+\w+\h*=\h*'.
+					'(?:"(?:.+?)"|\'(?:.+?)\'))*)\h*\/?>/is',
 					substr($req['body'],$ptr),$parts)) {
-					if ($parts[1]) {
+					if ($parts[1] &&
 						// Process attributes
-						preg_match_all('/\s+(rel|href)\s*=\s*'.
+						preg_match_all('/\b(rel|href)\h*=\h*'.
 							'(?:"(.+?)"|\'(.+?)\')/s',$parts[1],$attr,
-							PREG_SET_ORDER);
+							PREG_SET_ORDER)) {
 						$node=array();
 						foreach ($attr as $kv)
 							$node[$kv[1]]=isset($kv[2])?$kv[2]:$kv[3];
@@ -109,6 +113,7 @@ class OpenID extends \Magic {
 		}
 		elseif (isset($this->args['server'])) {
 			// OpenID 1.1
+			$this->args['ns']='http://openid.net/signon/1.1';
 			if (isset($this->args['delegate']))
 				$this->args['identity']=$this->args['delegate'];
 		}
@@ -126,44 +131,46 @@ class OpenID extends \Magic {
 	}
 
 	/**
-		Initiate OpenID authentication sequence; Return FALSE on failure
-		or redirect to OpenID provider URL
-		@return bool
-		@param $proxy string
+	*	Initiate OpenID authentication sequence; Return FALSE on failure
+	*	or redirect to OpenID provider URL
+	*	@return bool
+	*	@param $proxy string
 	**/
 	function auth($proxy=NULL) {
 		$fw=\Base::instance();
 		$root=$fw->get('SCHEME').'://'.$fw->get('HOST');
 		if (empty($this->args['trust_root']))
-			$this->args['trust_root']=$root.($fw->get('BASE')?:'/');
+			$this->args['trust_root']=$root.$fw->get('BASE').'/';
 		if (empty($this->args['return_to']))
 			$this->args['return_to']=$root.$_SERVER['REQUEST_URI'];
 		$this->args['mode']='checkid_setup';
-		if ($url=$this->discover($proxy)) {
+		if ($this->url=$this->discover($proxy)) {
 			$var=array();
 			foreach ($this->args as $key=>$val)
 				$var['openid.'.$key]=$val;
-			$fw->reroute($url.'?'.http_build_query($var));
+			$fw->reroute($this->url.'?'.http_build_query($var));
 		}
 		return FALSE;
 	}
 
 	/**
-		Return TRUE if OpenID verification was successful
-		@return bool
-		@param $proxy string
+	*	Return TRUE if OpenID verification was successful
+	*	@return bool
+	*	@param $proxy string
 	**/
 	function verified($proxy=NULL) {
-		foreach ($_GET as $key=>$val)
-			if (preg_match('/^openid_(.+)/',$key,$match))
-				$this->args[$match[1]]=$val;
-		if ($url=$this->discover($proxy)) {
+		preg_match_all('/(?<=^|&)openid\.([^=]+)=([^&]+)/',
+			$_SERVER['QUERY_STRING'],$matches,PREG_SET_ORDER);
+		foreach ($matches as $match)
+			$this->args[$match[1]]=urldecode($match[2]);
+		if ($this->args['mode']!='error' &&
+			$this->url=$this->discover($proxy)) {
 			$this->args['mode']='check_authentication';
 			$var=array();
 			foreach ($this->args as $key=>$val)
 				$var['openid.'.$key]=$val;
 			$req=\Web::instance()->request(
-				$url,
+				$this->url,
 				array(
 					'method'=>'POST',
 					'content'=>http_build_query($var),
@@ -176,36 +183,37 @@ class OpenID extends \Magic {
 	}
 
 	/**
-		Return TRUE if OpenID request parameter exists
-		@return bool
-		@param $key string
+	*	Return TRUE if OpenID request parameter exists
+	*	@return bool
+	*	@param $key string
 	**/
 	function exists($key) {
 		return isset($this->args[$key]);
 	}
 
 	/**
-		Bind value to OpenID request parameter
-		@return string
-		@param $key string
-		@param $val string
+	*	Bind value to OpenID request parameter
+	*	@return string
+	*	@param $key string
+	*	@param $val string
 	**/
 	function set($key,$val) {
 		return $this->args[$key]=$val;
 	}
 
 	/**
-		Return value of OpenID request parameter
-		@return mixed
-		@param $key string
+	*	Return value of OpenID request parameter
+	*	@return mixed
+	*	@param $key string
 	**/
 	function get($key) {
 		return isset($this->args[$key])?$this->args[$key]:NULL;
 	}
 
 	/**
-		Remove OpenID request parameter
-		@param $key
+	*	Remove OpenID request parameter
+	*	@return NULL
+	*	@param $key
 	**/
 	function clear($key) {
 		unset($this->args[$key]);

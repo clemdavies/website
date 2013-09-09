@@ -50,7 +50,7 @@
 
 .border:hover
 {
-  cursor:pointer;
+  /*cursor:pointer;*/
 }
 
 .category.image.border
@@ -76,7 +76,7 @@
 }
 .load.icon img:hover
 {
-  cursor:pointer
+  /*cursor:pointer*/
 }
 
 #top_anchor

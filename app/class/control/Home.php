@@ -10,7 +10,6 @@ Class Home{
     $feed = new Feed();
     $f3->set('content',$feed->latest($f3));
 
-
     print Template::instance()->render('/template/main.html');
   }
 }
