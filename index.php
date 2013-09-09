@@ -25,10 +25,19 @@ if (get_magic_quotes_gpc()) {
 /* START EXPANSIVE DATABASE APP START */
 
 $f3->map( '/expansive'                , 'ExpHome'         );
-$f3->map( '/expansive/@type'          , 'ExpClient'       );
+
+$f3->map( '/expansive/client'         , 'ExpClient'       );
+$f3->map( '/expansive/unassigned'     , 'ExpUnassigned'   );
+$f3->map( '/expansive/@type'          , 'ExpType'         );
+
+$f3->map( '/expansive/client/@id'     , 'ExpViewClient'   );
+
 $f3->map( '/expansive/new/client'     , 'ExpNewClient'    );
 $f3->map( '/expansive/new/type'       , 'ExpNewType'      );
 $f3->map( '/expansive/new/attribute'  , 'ExpNewAttribute' );
+
+
+
 
 /* END EXPANSIVE DATABASE APP END */
 
