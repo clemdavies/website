@@ -1,0 +1,16 @@
+<div class='attribute'>
+  <check if="{{@attribute->getType() == 'bool_attribute'}}" >
+    <input class='double_height' name='{{@attribute->getName()}}' id='{{@attribute->getName()}}' type='checkbox' />
+    <label class='double_height' for='{{@attribute->getName()}}'>{{@attribute->getName()}}</label>
+    <input id='{{@attribute->getName()}}_true' type='radio' name='{{@attribute->getName()}}_value' value='true' />
+    <label for='{{@attribute->getName()}}_true'>yes</label>
+    <br />
+    <input id='{{@attribute->getName()}}_false' type='radio' name='{{@attribute->getName()}}_value' value='false' />
+    <label for='{{@attribute->getName()}}_false' >no</label>
+  </check>
+  <check if="{{@attribute->getType() == 'string_attribute'}}" >
+    <input name='{{@attribute->getName()}}' id='{{@attribute->getName()}}' type='checkbox' />
+    <label class='inactive' for='{{@attribute->getName()}}'>{{@attribute->getName()}}</label>
+    <input class='inactive' name='{{@attribute->getName()}}_value' id='{{@attribute->getName()}}' type='text' />
+  </check>
+</div>

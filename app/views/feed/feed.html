@@ -1,11 +1,5 @@
 <check if="{{ isset(@articles) }}">
 
-  <div id='anchor_image' class='icon'>
-    <img class='image' title='to top' src='{{@HOME}}images/ship.png' alternate='{{@HOME}}images/ship_highlight.png'/>
-  </div>
-  <div id='top_anchor' class='icon'>
-  </div>
-
   <repeat group="{{ @articles }}" value="{{ @article }}">
 
     <include href="feed/article.html"/>

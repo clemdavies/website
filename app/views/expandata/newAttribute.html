@@ -1,0 +1,29 @@
+
+<form method='POST' action='{{@EXPHOME}}new/attribute'>
+
+  <check if='{{count(@attributes) > 0}}' >
+    <div class='box'>
+      <div class='heading'>existing attributes</div>
+      <repeat group='{{@attributes}}' value='{{@attribute}}'>
+        <div>{{@attribute->getId()}} : {{@attribute->getName()}} : {{@attribute->getType()}}</div>
+      </repeat>
+    </div>
+  </check>
+
+  <div class='box'>
+    <div class='heading'>{{@title}}</div>
+
+    <label for='name'>name</label>
+    <input id='name' name='name' type='text' />
+    <br />
+    <div id='type_selection'>
+    <label class='double_height'>data type</label>
+      <input id='bool_attribute' type='radio' name='type' value='bool_attribute' />
+      <label for='bool_attribute'>yes or no</label>
+      <br />
+      <input id='string_attribute' type='radio' name='type' value='string_attribute' />
+      <label for='string_attribute'>text</label>
+    </div>
+  </div>
+    <input type='submit' value='submit'/>
+</form>

@@ -1,0 +1,179 @@
+
+<form method='POST' action='{{@EXPHOME}}new/client'>
+
+  <div id='name' class='box'>
+    <div class='heading'>name</div>
+
+    <label for='title'>title</label>
+    <input id='title' name='title' type='text' />
+    <br />
+    <label for='first_name'>first name</label>
+    <input id='first_name' name='first_name' type='text' />
+    <br />
+    <label for='last_name'>last name</label>
+    <input id='last_name' name='last_name' type='text' />
+  </div>
+
+  <div id='contact' class='box'>
+    <div class='heading'>contact</div>
+
+    <label for='home'>home</label>
+    <input id='home' name='home' type='text' />
+    <br />
+    <label for='work'>work</label>
+    <input id='work' name='work' type='text' />
+    <br />
+    <label for='mobile'>mobile</label>
+    <input id='mobile' name='mobile' type='text' />
+    <br />
+    <label for='fax'>fax</label>
+    <input id='fax' name='fax' type='text' />
+    <br />
+    <label for='email'>email</label>
+    <input id='email' name='email' type='text' />
+  </div>
+
+  <div id='street' class='box'>
+    <div class='heading'>street address</div>
+
+    <label for='unit_number'>unit number</label>
+    <input id='street_unit_number' name='street_unit_number' type='text' />
+    <br />
+    <label for='street_number'>street number</label>
+    <input id='street_street_number' name='street_street_number' type='text' />
+    <br />
+    <label for='street_name'>street name</label>
+    <input id='street_street_name' name='street_street_name' type='text' />
+    <br />
+    <label for='city'>city/town</label>
+    <input id='street_city' name='street_city' type='text' />
+    <br />
+    <label for='postcode'>postcode</label>
+    <input id='street_postcode' name='street_postcode' type='text' />
+    <br />
+    <label for='suburb'>suburb</label>
+    <input id='street_suburb' name='street_suburb' type='text' />
+    <br />
+    <label for='state'>state</label>
+    <select id='street_state' name='street_state'>
+      <option value='WA' >Western Australia</option>
+      <option value='SA' >South Australia</option>
+      <option value='NT' >Northern Territory</option>
+      <option value='QLD'>Queensland</option>
+      <option value='NSW'>New South Wales</option>
+      <option value='VIC'>Victoria</option>
+      <option value='ACT'>Australian Capital Territory</option>
+      <option value='TAS'>Tasmania</option>
+    </select>
+  </div>
+
+  <div id='postal' class='box'>
+    <div class='heading'>postal address</div>
+    <input id='populate' type='button' value='same as street'/>
+    <br />
+    <label for='unit_number'>unit_number</label>
+    <input id='postal_unit_number' name='postal_unit_number' type='text' />
+    <br />
+    <label for='street_number'>street_number</label>
+    <input id='postal_street_number' name='postal_street_number' type='text' />
+    <br />
+    <label for='street_name'>street_name</label>
+    <input id='postal_street_name' name='postal_street_name' type='text' />
+    <br />
+    <label for='city'>city/town</label>
+    <input id='postal_city' name='postal_city' type='text' />
+    <br />
+    <label for='postcode'>postcode</label>
+    <input id='postal_postcode' name='postal_postcode' type='text' />
+    <br />
+    <label for='suburb'>suburb</label>
+    <input id='postal_suburb' name='postal_suburb' type='text' />
+    <br />
+    <label for='state'>state</label>
+    <select id='postal_state' name='postal_state'>
+      <option value='WA' >Western Australia</option>
+      <option value='SA' >South Australia</option>
+      <option value='NT' >Northern Territory</option>
+      <option value='QLD'>Queensland</option>
+      <option value='NSW'>New South Wales</option>
+      <option value='VIC'>Victoria</option>
+      <option value='ACT'>Australian Capital Territory</option>
+      <option value='TAS'>Tasmania</option>
+    </select>
+  </div>
+
+    <div id='types' class='box'>
+        <div id='current_type' class='box'>
+          <div class='heading'>client types</div>
+      <check if='{{count(@types) > 0}}' >
+        <true>
+          <repeat group='{{@types}}' value='{{@type}}'>
+            <include href='expandata/typeForm.html'/>
+          </repeat>
+        </true>
+        <false>
+          <div class='alert'>none</div>
+        </false>
+      </check>
+        </div>
+      <div id='new_type' class='box'>
+        <div class='heading'>create new client type</div>
+        <label for='new_type_name'>name</label>
+        <input id='new_type_name' name='new_type_name' type='text' />
+        <br />
+        <input id='create_type' class='small' type='button' value='create type' />
+      </div>
+    </div>
+
+    <div id='attributes' class='box'>
+      <div id='current_attribute' class='box'>
+        <div class='heading'>client attributes</div>
+        <check if='{{ count(@stringAttributes) + count(@boolAttributes) === 0 }}'>
+          <div class='alert'>none</div>
+        </check>
+        <div id='current_bool_attribute'>
+          <check if='{{ count(@boolAttributes) }}' >
+            <repeat group='{{@boolAttributes}}' value='{{@boolAttribute}}'>
+              <div class='attribute'>
+                <input class='double_height' name='{{@boolAttribute->getName()}}' id='{{@boolAttribute->getName()}}' type='checkbox' />
+                <label class='double_height' for='{{@boolAttribute->getName()}}'>{{@boolAttribute->getName()}}</label>
+                <input id='{{@boolAttribute->getName()}}_true' type='radio' name='{{@boolAttribute->getName()}}_value' value='true' />
+                <label for='{{@boolAttribute->getName()}}_true'>yes</label>
+                <br />
+                <input id='{{@boolAttribute->getName()}}_false' type='radio' name='{{@boolAttribute->getName()}}_value' value='false' />
+                <label for='{{@boolAttribute->getName()}}_false' >no</label>
+              </div>
+            </repeat>
+          </check>
+        </div>
+        <div id='current_string_attribute'>
+          <check if='{{ count(@stringAttributes) }}' >
+            <repeat group='{{@stringAttributes}}' value='{{@stringAttribute}}'>
+              <div class='attribute'>
+                <input name='{{@stringAttribute->getName()}}' id='{{@stringAttribute->getName()}}' type='checkbox' />
+                <label class='inactive' for='{{@stringAttribute->getName()}}'>{{@stringAttribute->getName()}}</label>
+                <input class='inactive' name='{{@stringAttribute->getName()}}_value' id='{{@stringAttribute->getName()}}' type='text' />
+              </div>
+            </repeat>
+          </check>
+        </div>
+      </div>
+      <div id='new_attribute' class='box'>
+        <div class='heading'>create new client attribute</div>
+        <label for='new_attribute_name'>name</label>
+        <input id='new_attribute_name' name='new_attribute_name' type='text' />
+        <br />
+        <div id='new_attribute_type_selection'>
+        <label class='double_height'>data type</label>
+          <input id='bool_attribute' type='radio' name='new_attribute_type' value='bool_attribute' />
+          <label for='bool_attribute'>yes or no</label>
+          <br />
+          <input id='string_attribute' type='radio' name='new_attribute_type' value='string_attribute' />
+          <label for='string_attribute'>text</label>
+        </div>
+        <input id='create_attribute' class='small' type='button' value='create attribute' />
+      </div>
+    </div>
+
+  <input id='submit' type='submit' value='create client'/>
+</form>

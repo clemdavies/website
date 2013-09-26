@@ -1,0 +1,213 @@
+/*
+  forms.css
+*/
+
+input.delete[type=button],
+input.delete[type=submit]
+{
+  background-color:#ff9292 !important;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF5959), to(#ff9292));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #ff9292, #FF5959);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #ff9292, #FF5959);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #ff9292, #FF5959);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #ff9292, #FF5959);
+}
+
+input.delete[type=button]:hover,
+input.delete[type=submit]:hover
+{
+  background-color:#FF5959 !important;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff9292), to(#FF5959));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #FF5959, #ff9292);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #FF5959, #ff9292);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #FF5959, #ff9292);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #FF5959, #ff9292);
+}
+
+input[type=button],
+input[type=submit]
+{
+  margin-top:5px;
+  background-color:#77cc9b;
+  border:none;
+  color:black;
+  border-radius:5px;
+  cursor:pointer;
+  padding:5px 10px;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#47cc80), to(#77cc9b));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #77cc9b, #47cc80);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #77cc9b, #47cc80);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #77cc9b, #47cc80);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #77cc9b, #47cc80);
+}
+
+
+input[type=button]:hover,
+input[type=submit]:hover
+{
+  color:white;
+  background-color:#47cc80;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#77cc9b), to(#47cc80));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #47cc80, #77cc9b);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #47cc80, #77cc9b);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #47cc80, #77cc9b);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #47cc80, #77cc9b);
+
+  -moz-box-shadow:    inset 0.2px 0.2px 0.5px 0.5px grey;
+  -webkit-box-shadow: inset 0.2px 0.2px 0.5px 0.5px grey;
+  box-shadow:         inset 0.2px 0.2px 0.5px 0.5px grey;
+}
+#submit
+{
+  padding:10px 20px;
+  font-weight:bold;
+}
+.box input[type=button]
+{
+  margin:0 0 5px;
+}
+.box > .box input[type=button]
+{
+  margin:5px 0;
+}
+.box
+{
+  border-top:none;
+  border-bottom:solid black 1px;
+  padding:5px 0;
+}
+.box > .box
+{
+  border: none !important;
+  padding:5px 0 0 0 !important;
+}
+.box > .box:first-of-type
+{
+  padding:0 !important;
+  border:none !important;
+}
+
+.box:first-of-type
+{
+  border-top:solid black 1px;
+  border-bottom:solid black 1px;
+}
+.box:only-of-type
+{
+  border-top:solid black 1px;
+  border-bottom:solid black 1px;
+}
+.box .heading:first-of-type
+{
+  font-weight:bold;
+  padding:0 0 5px 0;
+  height:20px;
+}
+form > .box:last-of-type
+{
+  margin-bottom:5px;
+}
+.box label
+{
+  width:100px;
+  display:inline-block;
+  height:25px;
+  line-height:25px;
+}
+.box input:not([type=button])
+{
+  border:solid grey 1px;
+}
+.box input:not([type=button],[type=radio],[type=checkbox]),
+.box select
+{
+  width:220px;
+  height:20px;
+}
+.box select
+{
+  height:25px;
+}
+
+.box .heading
+{
+  display:block;
+}
+
+.double_height
+{
+  float:left;
+  height:45px !important;
+}
+input[type=checkbox]
+{
+  width:20px !important;
+}
+
+.radio_container
+{
+  display:inline-block;
+}
+.radio_container .radio
+{
+  display:inline-block;
+  width:100px;
+}
+.radio input,
+.radio label
+{
+  display:inline-block;
+}
+
+/* ERROR FLAGS */
+.content
+{
+  background-color:white;
+  padding:0 5px;
+}
+
+.form_error
+{
+  position:absolute;
+  top:0;
+  border:solid orange 2px;
+  color:orange;
+  background-color:#404040;
+  padding:2px 10px;
+  z-index:-2;
+  left:0;
+  width:180px;
+}
+.form_error_animate
+{
+  left:-180px;
+}
+
+.form_error_container
+{
+  position:relative;
+}
+
+
+

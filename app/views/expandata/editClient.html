@@ -1,0 +1,217 @@
+
+<form method='POST' action='{{@EXPHOME}}client/{{@client->getId()}}/edit'>
+
+  <div id='name' class='box'>
+    <div class='heading'>name</div>
+
+    <label for='title'>title</label>
+    <input id='title' name='title' type='text' value='{{@client->getName()->getTitle()}}' />
+    <br />
+    <label for='first_name'>first name</label>
+    <input id='first_name' name='first_name' type='text' value='{{@client->getName()->getFirst()}}' />
+    <br />
+    <label for='last_name'>last name</label>
+    <input id='last_name' name='last_name' type='text' value='{{@client->getName()->getLast()}}' />
+  </div>
+
+  <div id='contact' class='box'>
+    <div class='heading'>contact</div>
+
+    <label for='home'>home</label>
+    <input id='home' name='home' type='text' value='{{@client->getContact()->getHome()}}' />
+    <br />
+    <label for='work'>work</label>
+    <input id='work' name='work' type='text' value='{{@client->getContact()->getWork()}}' />
+    <br />
+    <label for='mobile'>mobile</label>
+    <input id='mobile' name='mobile' type='text' value='{{@client->getContact()->getMobile()}}' />
+    <br />
+    <label for='fax'>fax</label>
+    <input id='fax' name='fax' type='text' value='{{@client->getContact()->getFax()}}' />
+    <br />
+    <label for='email'>email</label>
+    <input id='email' name='email' type='text' value='{{@client->getContact()->getEmail()}}' />
+  </div>
+
+  <div id='street' class='box'>
+    <div class='heading'>street address</div>
+
+    <label for='street_unit_number'>unit number</label>
+    <input id='street_unit_number' name='street_unit_number' type='text' value='{{@client->getStreetAddress()->getUnitNumber()}}' />
+    <br />
+    <label for='street_street_number'>street number</label>
+    <input id='street_street_number' name='street_street_number' type='text' value='{{@client->getStreetAddress()->getStreetNumber()}}' />
+    <br />
+    <label for='street_street_name'>street name</label>
+    <input id='street_street_name' name='street_street_name' type='text' value='{{@client->getStreetAddress()->getStreetName()}}' />
+    <br />
+    <label for='street_city'>city/town</label>
+    <input id='street_city' name='street_city' type='text' value='{{@client->getStreetAddress()->getCity()}}' />
+    <br />
+    <label for='street_postcode'>postcode</label>
+    <input id='street_postcode' name='street_postcode' type='text' value='{{@client->getStreetAddress()->getPostcode()->getNumber()}}' />
+    <br />
+    <label for='street_suburb'>suburb</label>
+    <input id='street_suburb' name='street_suburb' type='text' value='{{@client->getStreetAddress()->getSuburb()->getName()}}' />
+    <br />
+    <label for='street_state'>state</label>
+    <select id='street_state' name='street_state'>
+      <option value='WA'  selected="{{@client->getStreetAddress()->getSelectedState('WA')}}"  >Western Australia</option>
+      <option value='SA'  selected="{{@client->getStreetAddress()->getSelectedState('SA')}}"  >South Australia</option>
+      <option value='NT'  selected="{{@client->getStreetAddress()->getSelectedState('NT')}}"  >Northern Territory</option>
+      <option value='QLD' selected="{{@client->getStreetAddress()->getSelectedState('QLD')}}" >Queensland</option>
+      <option value='NSW' selected="{{@client->getStreetAddress()->getSelectedState('NSW')}}" >New South Wales</option>
+      <option value='VIC' selected="{{@client->getStreetAddress()->getSelectedState('VIC')}}" >Victoria</option>
+      <option value='ACT' selected="{{@client->getStreetAddress()->getSelectedState('ACT')}}" >Australian Capital Territory</option>
+      <option value='TAS' selected="{{@client->getStreetAddress()->getSelectedState('TAS')}}" >Tasmania</option>
+    </select>
+  </div>
+
+  <div id='postal' class='box'>
+    <div class='heading'>postal address</div>
+    <input id='populate' type='button' value='same as street'/>
+    <br />
+
+    <label for='postal_unit_number'>unit number</label>
+    <input id='postal_unit_number' name='postal_unit_number' type='text' value='{{@client->getPostalAddress()->getUnitNumber()}}' />
+    <br />
+    <label for='postal_street_number'>street number</label>
+    <input id='postal_street_number' name='postal_street_number' type='text' value='{{@client->getPostalAddress()->getStreetNumber()}}' />
+    <br />
+    <label for='postal_street_name'>street name</label>
+    <input id='postal_street_name' name='postal_street_name' type='text' value='{{@client->getPostalAddress()->getStreetName()}}' />
+    <br />
+    <label for='postal_city'>city/town</label>
+    <input id='postal_city' name='postal_city' type='text' value='{{@client->getPostalAddress()->getCity()}}' />
+    <br />
+    <label for='postal_postcode'>postcode</label>
+    <input id='postal_postcode' name='postal_postcode' type='text' value='{{@client->getPostalAddress()->getPostcode()->getNumber()}}' />
+    <br />
+    <label for='postal_suburb'>suburb</label>
+    <input id='postal_suburb' name='postal_suburb' type='text' value='{{@client->getPostalAddress()->getSuburb()->getName()}}' />
+    <br />
+    <label for='postal_state'>state</label>
+    <select id='postal_state' name='postal_state'>
+      <option value='WA'  selected="{{@client->getPostalAddress()->getSelectedState('WA')}}"  >Western Australia</option>
+      <option value='SA'  selected="{{@client->getPostalAddress()->getSelectedState('SA')}}"  >South Australia</option>
+      <option value='NT'  selected="{{@client->getPostalAddress()->getSelectedState('NT')}}"  >Northern Territory</option>
+      <option value='QLD' selected="{{@client->getPostalAddress()->getSelectedState('QLD')}}" >Queensland</option>
+      <option value='NSW' selected="{{@client->getPostalAddress()->getSelectedState('NSW')}}" >New South Wales</option>
+      <option value='VIC' selected="{{@client->getPostalAddress()->getSelectedState('VIC')}}" >Victoria</option>
+      <option value='ACT' selected="{{@client->getPostalAddress()->getSelectedState('ACT')}}" >Australian Capital Territory</option>
+      <option value='TAS' selected="{{@client->getPostalAddress()->getSelectedState('TAS')}}" >Tasmania</option>
+    </select>
+  </div>
+
+    <div id='types' class='box'>
+        <div id='current_type' class='box'>
+          <div class='heading'>client types</div>
+
+      <check if='{{ count(@client->getTypes()) + count(@otherTypes) == 0 }}' >
+        <div class='alert'>none</div>
+      </check>
+      <check if='{{ count(@client->getTypes()) }}' >
+        <repeat group='{{@client->getTypes()}}' value='{{@type}}'>
+          <include href='expandata/editTypeForm.html'/>
+        </repeat>
+      </check>
+      <check if='{{ count(@otherTypes) }}'>
+        <repeat group='{{ @otherTypes }}' value='{{ @type }}'>
+          <include href='expandata/typeForm.html'/>
+        </repeat>
+      </check>
+        </div>
+      <div id='new_type' class='box'>
+        <div class='heading'>create new client type</div>
+        <label for='new_type_name'>name</label>
+        <input id='new_type_name' name='new_type_name' type='text' />
+        <br />
+        <input id='create_type' class='small' type='button' value='create type' />
+      </div>
+    </div>
+
+    <div id='attributes' class='box'>
+      <div id='current_attribute' class='box'>
+        <div class='heading'>client attributes</div>
+        <check if='{{ count(@client->getAttributes()) == 0 }}'>
+          <div class='alert'>none</div>
+        </check>
+        <div id='current_bool_attribute'>
+            <repeat group='{{@client->getAttributes()}}' value='{{@boolAttribute}}'>
+              <check if="{{@boolAttribute->getType() == 'bool_attribute'}}" >
+                <div class='attribute'>
+                  <input class='double_height' name='{{@boolAttribute->getName()}}' id='{{@boolAttribute->getName()}}' type='checkbox' checked/>
+                  <label class='double_height' for='{{@boolAttribute->getName()}}'>{{@boolAttribute->getName()}}</label>
+                  <check if='{{@boolAttribute->getValue()}}'>
+                    <true>
+                      <input id='{{@boolAttribute->getName()}}_true' type='radio' name='{{@boolAttribute->getName()}}_value' value='true' checked/>
+                      <label for='{{@boolAttribute->getName()}}_true'>yes</label>
+                      <br />
+                      <input id='{{@boolAttribute->getName()}}_false' type='radio' name='{{@boolAttribute->getName()}}_value' value='false' />
+                      <label for='{{@boolAttribute->getName()}}_false' >no</label>
+                    </true>
+                    <false>
+                      <input id='{{@boolAttribute->getName()}}_true' type='radio' name='{{@boolAttribute->getName()}}_value' value='true' />
+                      <label for='{{@boolAttribute->getName()}}_true'>yes</label>
+                      <br />
+                      <input id='{{@boolAttribute->getName()}}_false' type='radio' name='{{@boolAttribute->getName()}}_value' value='false' checked/>
+                      <label for='{{@boolAttribute->getName()}}_false' >no</label>
+                    </false>
+                  </check>
+                </div>
+              </check>
+            </repeat>
+            <repeat group='{{@otherAttributes}}' value='{{@otherAttribute}}'>
+              <check if="{{ @otherAttribute->getType() == 'bool_attribute' }}">
+                <div class='attribute'>
+                  <input class='double_height' name='{{@otherAttribute->getName()}}' id='{{@otherAttribute->getName()}}' type='checkbox' />
+                  <label class='double_height' for='{{@otherAttribute->getName()}}'>{{@otherAttribute->getName()}}</label>
+                  <input id='{{@otherAttribute->getName()}}_true' type='radio' name='{{@otherAttribute->getName()}}_value' value='true' />
+                  <label for='{{@otherAttribute->getName()}}_true'>yes</label>
+                  <br />
+                  <input id='{{@otherAttribute->getName()}}_false' type='radio' name='{{@otherAttribute->getName()}}_value' value='false' />
+                  <label for='{{@otherAttribute->getName()}}_false' >no</label>
+                </div>
+              </check>
+            </repeat>
+        </div>
+        <div id='current_string_attribute'>
+            <repeat group='{{@client->getAttributes()}}' value='{{@stringAttribute}}'>
+              <check if="{{@stringAttribute->getType() == 'string_attribute'}}">
+                <div class='attribute'>
+                  <input name='{{@stringAttribute->getName()}}' id='{{@stringAttribute->getName()}}' type='checkbox' checked/>
+                  <label class='inactive' for='{{@stringAttribute->getName()}}'>{{@stringAttribute->getName()}}</label>
+                  <input class='inactive' name='{{@stringAttribute->getName()}}_value' id='{{@stringAttribute->getName()}}' type='text' value='{{@stringAttribute->getValue()}}' />
+                </div>
+              </check>
+            </repeat>
+            <repeat group='{{@otherAttributes}}' value='{{@otherAttribute}}'>
+              <check if="{{ @otherAttribute->getType() == 'string_attribute' }}">
+                <div class='attribute'>
+                  <input name='{{@otherAttribute->getName()}}' id='{{@otherAttribute->getName()}}' type='checkbox' />
+                  <label class='inactive' for='{{@otherAttribute->getName()}}'>{{@otherAttribute->getName()}}</label>
+                  <input class='inactive' name='{{@otherAttribute->getName()}}_value' id='{{@otherAttribute->getName()}}' type='text' />
+                </div>
+              </check>
+            </repeat>
+        </div>
+      </div>
+      <div id='new_attribute' class='box'>
+        <div class='heading'>create new client attribute</div>
+        <label for='new_attribute_name'>name</label>
+        <input id='new_attribute_name' name='new_attribute_name' type='text' />
+        <br />
+        <div id='new_attribute_type_selection'>
+        <label class='double_height'>data type</label>
+          <input id='bool_attribute' type='radio' name='new_attribute_type' value='bool_attribute' />
+          <label for='bool_attribute'>yes or no</label>
+          <br />
+          <input id='string_attribute' type='radio' name='new_attribute_type' value='string_attribute' />
+          <label for='string_attribute'>text</label>
+        </div>
+        <input id='create_attribute' class='small' type='button' value='create attribute' />
+      </div>
+    </div>
+
+  <input id='submit' type='submit' value='create client'/>
+</form>

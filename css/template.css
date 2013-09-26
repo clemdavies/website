@@ -186,7 +186,14 @@ textarea
 
 .content
 {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    /*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+
+  font-family: 'Raleway', sans-serif;
+}
+.title
+{
+  font-family: 'Josefin Slab', serif;
+  font-size:120%;
 }
 
 body a

@@ -1,0 +1,67 @@
+
+
+<check if='{{isset(@error)}}' >
+  <true>
+    <h2>{{@error}}</h2>
+  </true>
+  <false>
+    <div>
+      <div class='box'>id {{@client->getId()}} </div>
+      <div class='box'>
+        <div class='heading'>contact</div>
+        <div>home: {{@client->getContact()->getHome()}}</div>
+        <div>work: {{@client->getContact()->getWork()}}</div>
+        <div>mobile: {{@client->getContact()->getMobile()}}</div>
+        <div>fax: {{@client->getContact()->getFax()}}</div>
+        <div>email: {{@client->getContact()->getEmail()}}</div>
+      </div>
+
+      <div class='box'>
+        <check if='{{@client->getPostalAddress() == @client->getStreetAddress()}}'>
+          <true>
+            <div class='heading'>street and postal address</div>
+          </true>
+          <false>
+            <div class='heading'>street address</div>
+          </false>
+        </check>
+        <div>{{@client->getStreetAddress()->getStreetNumber()}}{{@client->getStreetAddress()->getUnitNumber()}} {{@client->getStreetAddress()->getStreetName()}} {{@client->getStreetAddress()->getSuburb()->getName()}}</div>
+        <div>{{@client->getStreetAddress()->getCity()}} {{@client->getStreetAddress()->getState()}} {{@client->getStreetAddress()->getPostcode()->getNumber()}}</div>
+      </div>
+
+      <check if='{{@client->getPostalAddress() != @client->getStreetAddress()}}'>
+        <div class='box'>
+          <div class='heading'>postal address</div>
+        <div>{{@client->getpostaladdress()->getStreetNumber()}}{{@client->getpostaladdress()->getUnitNumber()}} {{@client->getpostaladdress()->getStreetName()}} {{@client->getpostaladdress()->getSuburb()->getName()}}</div>
+        <div>{{@client->getpostaladdress()->getCity()}} {{@client->getpostaladdress()->getState()}} {{@client->getpostaladdress()->getPostcode()->getNumber()}}</div>
+        </div>
+      </check>
+      <div class='box'>
+        <div class='heading'>types</div>
+        <check if='{{ count(@client->getTypes()) > 0 }}' >
+          <true>
+            <repeat group='{{@client->getTypes()}}' value='{{@type}}'>
+              <div>{{@type->getName()}}</div>
+            </repeat>
+          </true>
+          <false>
+            <span>unassigned</span>
+          </false>
+        </check>
+      </div>
+      <div class='box'>
+        <div class='heading'>attributes</div>
+        <check if='{{ count(@client->getAttributes()) > 0 }}' >
+          <true>
+            <repeat group='{{@client->getAttributes()}}' value='{{@attribute}}'>
+              <div>{{@attribute->getName()}} -> {{@attribute->toStringValue()}}</div>
+            </repeat>
+          </true>
+          <false>
+            <div>unassigned</div>
+          </false>
+        </check>
+      </div>
+    </div>
+  </false>
+</check>

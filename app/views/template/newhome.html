@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN''http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+<include href='template/head.html' />
+<body>
+<div id='header'>
+  <include href='template/newHeader.html' />
+</div>
+  <div class='content center column'>
+    <div class='spacer'></div>
+    <div id='page_heading'>Web Developer</div>
+    <div id='skills_container'>
+      <repeat group='{{@skills}}' key='{{@skill}}' value='{{@content}}'><div class='box inactive'><div class='heading'>{{@skill}}</div><div class='content'>{{@content}}</div></div></repeat>
+    </div>
+    <div class='half column'>
+      <div class='heading'>BLOG</div>
+      {{@latestBlog}}
+    </div>
+    <div class='half column'>
+      <div class='heading'>latest something</div>
+    </div>
+  </div>
+  <div id='footer'>my foot</div>
+</body>
+</html>

@@ -11,7 +11,7 @@ $(document).ready(function(){
       feedItems.windowResized();
   });
   feedItems.windowResized();
-  new SpaceShip();
+  /*new SpaceShip();*/
 });
 
 /* controls spaceship scroll to top icon */

@@ -25,5 +25,15 @@ Class Plugin{
     return $upload;
   }
 
+  public static function gridster(){
+
+    $gridster = array();
+
+    $gridster['dir'] = 'gridster';
+    $gridster['js']  = array('jquery.gridster.min');
+    $gridster['css'] = array('jquery.gridster.min');
+
+    return $gridster;
+  }
 
 }

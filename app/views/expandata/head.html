@@ -1,0 +1,24 @@
+<head>
+<title>Expandata
+  <check if='{{ isset(@title) }}'>
+    <true> - {{@title}}</true>
+  </check>
+</title>
+  <meta name="viewport" content="initial-scale=1">
+  <script src='{{@HOME}}config.js' type='text/javascript' language='javascript'></script>
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/clearfix.css'/>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/expandata/template.css'/>
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/expandata/forms.css'/>
+  <check if='{{ isset(@css) }}'>
+      <repeat group='{{ @css }}' value='{{ @csspath }}'>
+          <link rel='stylesheet' type='text/css' href='{{@HOME}}css/{{@csspath}}.css'/>
+      </repeat>
+  </check>
+  <script src='{{@HOME}}js/jquery-1.9.1.min.js' type='text/javascript' language='javascript'></script>
+  <check if='{{ isset(@js) }}'>
+      <repeat group='{{ @js }}' value='{{ @jspath }}'>
+          <script src='{{@HOME}}js/{{@jspath}}.js' language='javascript' type='text/javascript'></script>
+      </repeat>
+  </check>
+</head>

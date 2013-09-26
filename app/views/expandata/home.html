@@ -1,0 +1,43 @@
+
+<div>
+  <ul>
+    <li>select all
+    <ul>
+        <li><a href='{{@EXPHOME}}client'>clients</a></li>
+        <li><a href='{{@EXPHOME}}unassigned'>unassigned</a></li>
+  <check if='{{isset(@types)}}' >
+    <repeat group='{{@types}}' value='{{@type}}'>
+      <li><a href='{{@EXPHOME}}{{@type->getName()}}'>{{@type->getName()}}s</a></li>
+    </repeat>
+  </check>
+  <check if='{{isset(@attributes)}}' >
+    <repeat group='{{@attributes}}' value='{{@attribute}}'>
+      <li><a href='{{@EXPHOME}}{{@attribute->getName()}}'>{{@attribute->getName()}}s</a></li>
+    </repeat>
+  </check>
+    </ul>
+    <li>create new
+      <ul>
+        <li><a href='{{@EXPHOME}}new/client'>client</a></li>
+        <li><a href='{{@EXPHOME}}new/client/type'>client-type</a></li>
+        <li><a href='{{@EXPHOME}}new/client/attribute'>client-attribute</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>select all
+      <ul>
+        <li><a href='{{@EXPHOME}}property'>properties</a></li>
+      </ul>
+    </li>
+    <li>create new
+      <ul>
+        <li><a href='{{@EXPHOME}}new/property'>property</a></li>
+        <li><a href='{{@EXPHOME}}new/property/feature'>property-feature</a></li>
+        <li><a href='{{@EXPHOME}}new/property/style'>property-style</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

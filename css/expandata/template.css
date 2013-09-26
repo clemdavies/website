@@ -1,0 +1,104 @@
+/*
+  expandata/template.css
+*/
+
+body
+{
+  font-family:"Trebuchet MS",Helvetica,sans-serif;
+}
+.content
+{
+  font-family:"Trebuchet MS",Helvetica,sans-serif;
+}
+.center.column
+{
+  margin:auto;
+  width:60%;
+}
+.header
+{
+  height:60px;
+  text-align:left;
+  padding-top:5px;
+}
+a
+{
+  text-decoration:none;
+}
+.header a
+{
+  font-size:30px;
+  line-height:60px;
+  color:black;
+}
+.header a:hover
+{
+  color:white;
+}
+.background
+{
+  background-color:white;
+}
+.highlight
+{
+  background-color:lightblue;
+  color:black;
+}
+.banner
+{
+  font-size:200%;
+  line-height:60px;
+  height:60px;
+  font-family: 'Audiowide',Georgia, serif;
+  font-size:34pt !important;
+  float:right;
+}
+.content
+{
+  padding-top:20px;
+}
+.content a:hover
+{
+  text-decoration:underline;
+}
+div.title
+{
+  font-weight:bold;
+  font-size:150%;
+}
+
+/* home */
+ul li
+{
+  position: relative;
+  width:120px;
+}
+ul ul >li
+{
+  display:inline-block;
+}
+ul ul
+{
+  position:absolute;
+  left:100%;
+  display: none;
+  top:0;
+}
+
+ul > li:hover ul
+{
+  display: block;
+  background-color:lightblue;
+}
+div > ul > li:hover
+{
+  background-color:lightblue;
+  cursor:default;
+}
+
+/* general */
+.alert
+{
+  color:red;
+}
+
