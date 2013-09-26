@@ -72,10 +72,13 @@ ul li
 {
   position: relative;
   width:120px;
+  height:28px;
+  line-height:28px;
 }
 ul ul >li
 {
-  display:inline-block;
+  display:block;
+  width:180px;
 }
 ul ul
 {

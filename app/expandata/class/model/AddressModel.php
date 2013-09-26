@@ -17,7 +17,7 @@ Class AddressModel{
 
   public function getSelectedState($state){
     if ($state == $this->state){
-      return 'selected';
+      return 'selected = "selected"';
     }else{
       return null;
     }

@@ -29,7 +29,7 @@ Class ExpNewAttribute{
     $factory = new AttributeFactory($f3);
     $factory->save($attribute);
 
-    $f3->reroute('/expandata/new/attribute');
+    $f3->reroute('/expandata/new/client/attribute');
 
   }
 

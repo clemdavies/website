@@ -1,18 +1,19 @@
-
+<br />
 <div>
+  <div class='title'>clients</div>
   <ul>
     <li>select all
     <ul>
-        <li><a href='{{@EXPHOME}}client'>clients</a></li>
-        <li><a href='{{@EXPHOME}}unassigned'>unassigned</a></li>
+        <li><a href='{{@EXPHOME}}clients'>clients</a></li>
+        <li><a href='{{@EXPHOME}}clients/unassigned'>unassigned</a></li>
   <check if='{{isset(@types)}}' >
     <repeat group='{{@types}}' value='{{@type}}'>
-      <li><a href='{{@EXPHOME}}{{@type->getName()}}'>{{@type->getName()}}s</a></li>
+      <li><a href='{{@EXPHOME}}clients/{{@type->getName()}}'>{{@type->getName()}}s</a></li>
     </repeat>
   </check>
   <check if='{{isset(@attributes)}}' >
     <repeat group='{{@attributes}}' value='{{@attribute}}'>
-      <li><a href='{{@EXPHOME}}{{@attribute->getName()}}'>{{@attribute->getName()}}s</a></li>
+      <li><a href='{{@EXPHOME}}clients/{{@attribute->getName()}}'>{{@attribute->getName()}}s</a></li>
     </repeat>
   </check>
     </ul>
@@ -25,11 +26,27 @@
     </li>
   </ul>
 </div>
+<br />
 <div>
+  <div class='title'>properties</div>
   <ul>
     <li>select all
       <ul>
-        <li><a href='{{@EXPHOME}}property'>properties</a></li>
+        <li><a href='{{@EXPHOME}}properties'>properties</a></li>
+        <li><a href='{{@EXPHOME}}properties/unassigned/features'>unassigned features</a></li>
+        <li><a href='{{@EXPHOME}}properties/unassigned/styles'>unassigned styles</a></li>
+
+        <check if='{{isset(@features)}}'>
+          <repeat group='{{@features}}' value='{{@feature}}'>
+            <li><a href='{{@EXPHOME}}properties/{{@feature->getName()}}'>{{@feature->getName()}} features</a></li>
+          </repeat>
+        </check>
+
+        <check if='{{isset(@styles)}}'>
+          <repeat group='{{@styles}}' value='{{@style}}'>
+            <li><a href='{{@EXPHOME}}properties/{{@style->getName()}}'>{{@style->getName()}} styles</a></li>
+          </repeat>
+        </check>
       </ul>
     </li>
     <li>create new

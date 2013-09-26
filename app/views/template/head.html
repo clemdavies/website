@@ -11,7 +11,7 @@
   <link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' type='text/css' href='{{@HOME}}css/clearfix.css'/>
-  <!--<link rel='stylesheet' type='text/css' href='{{@HOME}}css/template.css'/>-->
+  <link rel='stylesheet' type='text/css' href='{{@HOME}}css/template.css'/>
   <check if='{{ isset(@css) }}'>
       <repeat group='{{ @css }}' value='{{ @csspath }}'>
           <link rel='stylesheet' type='text/css' href='{{@HOME.'css/'.@csspath.'.css'}}'/>

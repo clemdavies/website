@@ -26,9 +26,11 @@ if (get_magic_quotes_gpc()) {
 
 $f3->map( '/expandata' , 'ExpHome' );
 
-$f3->map( '/expandata/client'     , 'ExpClient'     );
-$f3->map( '/expandata/unassigned' , 'ExpUnassigned' );
-$f3->map( '/expandata/@type'      , 'ExpType'       );
+
+/* client */
+$f3->map( '/expandata/clients'            , 'ExpClient'     );
+$f3->map( '/expandata/clients/unassigned' , 'ExpUnassigned' );
+$f3->map( '/expandata/clients/@type'      , 'ExpType'       );
 
 $f3->map( '/expandata/client/@id'      , 'ExpViewClient' );
 $f3->map( '/expandata/client/@id/edit' , 'ExpEditClient' );
@@ -37,14 +39,15 @@ $f3->map( '/expandata/new/client'           , 'ExpNewClient'    );
 $f3->map( '/expandata/new/client/type'      , 'ExpNewType'      );
 $f3->map( '/expandata/new/client/attribute' , 'ExpNewAttribute' );
 
-$f3->map( '/expandata/new/type/ajax'      , 'ExpNewTypeAjax'      );
-$f3->map( '/expandata/new/attribute/ajax' , 'ExpNewAttributeAjax' );
+$f3->map( '/expandata/new/client/type/ajax'      , 'ExpNewTypeAjax'      );
+$f3->map( '/expandata/new/client/attribute/ajax' , 'ExpNewAttributeAjax' );
 
-$f3->map( '/expandata/property' , 'ExpProperty' );
-$f3->map( '/expandata/unassigned/feature' , 'ExpUnassignedFeature' );
-$f3->map( '/expandata/unassigned/style' , 'ExpUnassignedStyle' );
-$f3->map( '/expandata/@feature' , 'ExpFeature'  );
-$f3->map( '/expandata/@style'   , 'ExpStyle'    );
+/* property */
+$f3->map( '/expandata/properties'                     , 'ExpProperty' );//list all properties
+$f3->map( '/expandata/properties/unassigned/features' , 'ExpUnassignedFeature' );//list all properties with unassigned features
+$f3->map( '/expandata/properties/unassigned/styles'   , 'ExpUnassignedStyle' );//list all properties with unassigned styles
+$f3->map( '/expandata/properties/@feature'            , 'ExpFeature'  );//list all properties with 'x' feature
+$f3->map( '/expandata/properties/@style'              , 'ExpStyle'    );//list all property with 'x' style
 
 $f3->map( '/expandata/property/@id'      , 'ExpViewProperty' );
 $f3->map( '/expandata/property/@id/edit' , 'ExpEditProperty' );

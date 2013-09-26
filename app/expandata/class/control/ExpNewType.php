@@ -21,7 +21,7 @@ Class ExpNewType{
     $factory = new TypeFactory($f3);
     $factory->save($type);
 
-    $f3->reroute('/expandata/new/type');
+    $f3->reroute('/expandata/new/client/type');
 
   }
 

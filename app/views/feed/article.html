@@ -1,14 +1,24 @@
 
-<a class='feed_article_link' href='{{@HOME}}article/{{@article->getTitle()}}' >
-  <div class='feed_article_container'>
-      <div class='feed_article_content' article_id='{{@article->getId()}}' datetime='{{@article->getDateTime()}}'>
-        <div class='feed_article_image'><img src='{{@HOME}}images/{{@article->retrieveCategoryImage()}}' height='100' width='100' /></div>
-        <div class='feed_article_title title'>
-          {{@article->retrieveCleanTitle()}}
-        </div>
-        <div class='feed_article_date'>
-          {{@article->formatDate()}}
-        </div>
+  <div class='article container'>
+      <div class='category image border'  title='read'>
+        <a href='{{@HOME}}article/{{@article->getTitle()}}' >
+          <img class='category circle image small article_link' src='{{@HOME}}images/{{@article->retrieveCategoryImage()}}'/>
+        </a>
+      </div>
+      <div class='foreground border' title='read'>
+        <a href='{{@HOME}}article/{{@article->getTitle()}}' >
+          <div class='foreground article content article_link' article_id='{{@article->getId()}}' datetime='{{@article->getDateTime()}}'>
+            <div class='title'>
+              <span class='spacer'></span>
+              {{@article->retrieveCleanTitle()}}
+            </div>
+            <div class='date'>
+              {{@article->formatDate()}}
+            </div>
+            <div class='content'>
+              {{@article->retrieveContentSnippet()}}
+            </div>
+          </div>
+        </a>
       </div>
   </div>
-</a>

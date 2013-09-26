@@ -5,6 +5,10 @@
     <h2>{{@error}}</h2>
   </true>
   <false>
+      <form action='{{@EXPHOME}}client/{{@client->getId()}}/edit' method='GET'>
+        <input type='submit' value='edit'  />
+      </form>
+      <br />
     <div>
       <div class='box'>id {{@client->getId()}} </div>
       <div class='box'>

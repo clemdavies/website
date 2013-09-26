@@ -1,0 +1,14 @@
+
+<a class='feed_article_link' href='{{@HOME}}article/{{@article->getTitle()}}' >
+  <div class='feed_article_container'>
+      <div class='feed_article_content' article_id='{{@article->getId()}}' datetime='{{@article->getDateTime()}}'>
+        <div class='feed_article_image'><img src='{{@HOME}}images/{{@article->retrieveCategoryImage()}}' height='100' width='100' /></div>
+        <div class='feed_article_title title'>
+          {{@article->retrieveCleanTitle()}}
+        </div>
+        <div class='feed_article_date'>
+          {{@article->formatDate()}}
+        </div>
+      </div>
+  </div>
+</a>

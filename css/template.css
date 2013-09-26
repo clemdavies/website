@@ -39,11 +39,15 @@ grey:   #161616
     zoom: 1.0;
     width: extend-to-zoom;
 }
+.background
+{
+  background-color:black;
+}
 
 /* tablet, medium and large desktop screens */
 @media (min-width:500px)
 {
-  .background
+  .sbackground
   {
     background: url(../images/dark_pixel_pattern.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -121,7 +125,7 @@ grey:   #161616
 /* phones */
 @media (max-width:499px)
 {
-  .background
+  .sbackground
   {
     background: url(../images/pixel_pattern_black_small.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;

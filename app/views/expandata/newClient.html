@@ -134,7 +134,7 @@
         <div id='current_bool_attribute'>
           <check if='{{ count(@boolAttributes) }}' >
             <repeat group='{{@boolAttributes}}' value='{{@boolAttribute}}'>
-              <div class='attribute'>
+              <div id='attribute_{{@boolAttribute->getId()}}' class='attribute'>
                 <input class='double_height' name='{{@boolAttribute->getName()}}' id='{{@boolAttribute->getName()}}' type='checkbox' />
                 <label class='double_height' for='{{@boolAttribute->getName()}}'>{{@boolAttribute->getName()}}</label>
                 <input id='{{@boolAttribute->getName()}}_true' type='radio' name='{{@boolAttribute->getName()}}_value' value='true' />
@@ -149,7 +149,7 @@
         <div id='current_string_attribute'>
           <check if='{{ count(@stringAttributes) }}' >
             <repeat group='{{@stringAttributes}}' value='{{@stringAttribute}}'>
-              <div class='attribute'>
+              <div id='attribute_{{@stringAttribute->getId()}}' class='attribute'>
                 <input name='{{@stringAttribute->getName()}}' id='{{@stringAttribute->getName()}}' type='checkbox' />
                 <label class='inactive' for='{{@stringAttribute->getName()}}'>{{@stringAttribute->getName()}}</label>
                 <input class='inactive' name='{{@stringAttribute->getName()}}_value' id='{{@stringAttribute->getName()}}' type='text' />

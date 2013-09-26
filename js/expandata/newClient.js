@@ -71,7 +71,7 @@ function submitAttribute(event){
     data = {'new_attribute_name':name.val(),
             'new_attribute_type':typeSelection.filter(':checked').val()};
 
-    $.post(EXPHOME+'new/attribute/ajax',data,function(response){
+    $.post(EXPHOME+'new/client/attribute/ajax',data,function(response){
       errors = new Array();
 
       console.log(response);
@@ -115,7 +115,7 @@ function submitType(event){
 
     data = {'new_type_name':name.val()};
 
-    $.post(EXPHOME+'new/type/ajax',data,function(response){
+    $.post(EXPHOME+'new/client/type/ajax',data,function(response){
       errors = new Array();
       if(response.success) {
         name.val('');
@@ -198,7 +198,7 @@ function outputErrors(errors,form){
   form.addClass('form_error_container');
   form.append(div);
 
-  errorTextDivs = new Array();
+  var errorTextDivs = new Array();
 
   $.each(errors,function(i,object){
       var uniqueId = form.attr('id')+'_error_'+i;

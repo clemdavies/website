@@ -1,0 +1,13 @@
+<check if="{{ isset(@articles) }}">
+
+  <repeat group="{{ @articles }}" value="{{ @article }}">
+
+    <include href="feed/article.html"/>
+
+  </repeat>
+  <check if="{{ isset(@more) && @more }}">
+     <div id='load' class='load icon'>
+      <img class='image' title='more' src='{{@HOME}}images/skinnyDownArrowBorderInactive.png' alternate='{{@HOME}}images/skinnyDownArrowBorderActive.png'/>
+    </div>
+  </check>
+</check>

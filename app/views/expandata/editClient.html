@@ -1,4 +1,8 @@
 
+<form action='{{@EXPHOME}}client/{{@client->getId()}}' method='GET'>
+  <input type='submit' value='view profile'  />
+</form>
+<br />
 <form method='POST' action='{{@EXPHOME}}client/{{@client->getId()}}/edit'>
 
   <div id='name' class='box'>
@@ -56,14 +60,14 @@
     <br />
     <label for='street_state'>state</label>
     <select id='street_state' name='street_state'>
-      <option value='WA'  selected="{{@client->getStreetAddress()->getSelectedState('WA')}}"  >Western Australia</option>
-      <option value='SA'  selected="{{@client->getStreetAddress()->getSelectedState('SA')}}"  >South Australia</option>
-      <option value='NT'  selected="{{@client->getStreetAddress()->getSelectedState('NT')}}"  >Northern Territory</option>
-      <option value='QLD' selected="{{@client->getStreetAddress()->getSelectedState('QLD')}}" >Queensland</option>
-      <option value='NSW' selected="{{@client->getStreetAddress()->getSelectedState('NSW')}}" >New South Wales</option>
-      <option value='VIC' selected="{{@client->getStreetAddress()->getSelectedState('VIC')}}" >Victoria</option>
-      <option value='ACT' selected="{{@client->getStreetAddress()->getSelectedState('ACT')}}" >Australian Capital Territory</option>
-      <option value='TAS' selected="{{@client->getStreetAddress()->getSelectedState('TAS')}}" >Tasmania</option>
+      <option value='WA'  {{@client->getStreetAddress()->getSelectedState('WA')}}  >Western Australia</option>
+      <option value='SA'  {{@client->getStreetAddress()->getSelectedState('SA')}}  >South Australia</option>
+      <option value='NT'  {{@client->getStreetAddress()->getSelectedState('NT')}}  >Northern Territory</option>
+      <option value='QLD' {{@client->getStreetAddress()->getSelectedState('QLD')}} >Queensland</option>
+      <option value='NSW' {{@client->getStreetAddress()->getSelectedState('NSW')}} >New South Wales</option>
+      <option value='VIC' {{@client->getStreetAddress()->getSelectedState('VIC')}} >Victoria</option>
+      <option value='ACT' {{@client->getStreetAddress()->getSelectedState('ACT')}} >Australian Capital Territory</option>
+      <option value='TAS' {{@client->getStreetAddress()->getSelectedState('TAS')}} >Tasmania</option>
     </select>
   </div>
 
@@ -92,14 +96,14 @@
     <br />
     <label for='postal_state'>state</label>
     <select id='postal_state' name='postal_state'>
-      <option value='WA'  selected="{{@client->getPostalAddress()->getSelectedState('WA')}}"  >Western Australia</option>
-      <option value='SA'  selected="{{@client->getPostalAddress()->getSelectedState('SA')}}"  >South Australia</option>
-      <option value='NT'  selected="{{@client->getPostalAddress()->getSelectedState('NT')}}"  >Northern Territory</option>
-      <option value='QLD' selected="{{@client->getPostalAddress()->getSelectedState('QLD')}}" >Queensland</option>
-      <option value='NSW' selected="{{@client->getPostalAddress()->getSelectedState('NSW')}}" >New South Wales</option>
-      <option value='VIC' selected="{{@client->getPostalAddress()->getSelectedState('VIC')}}" >Victoria</option>
-      <option value='ACT' selected="{{@client->getPostalAddress()->getSelectedState('ACT')}}" >Australian Capital Territory</option>
-      <option value='TAS' selected="{{@client->getPostalAddress()->getSelectedState('TAS')}}" >Tasmania</option>
+      <option value='WA'  {{@client->getPostalAddress()->getSelectedState('WA')}}  >Western Australia</option>
+      <option value='SA'  {{@client->getPostalAddress()->getSelectedState('SA')}}  >South Australia</option>
+      <option value='NT'  {{@client->getPostalAddress()->getSelectedState('NT')}}  >Northern Territory</option>
+      <option value='QLD' {{@client->getPostalAddress()->getSelectedState('QLD')}} >Queensland</option>
+      <option value='NSW' {{@client->getPostalAddress()->getSelectedState('NSW')}} >New South Wales</option>
+      <option value='VIC' {{@client->getPostalAddress()->getSelectedState('VIC')}} >Victoria</option>
+      <option value='ACT' {{@client->getPostalAddress()->getSelectedState('ACT')}} >Australian Capital Territory</option>
+      <option value='TAS' {{@client->getPostalAddress()->getSelectedState('TAS')}} >Tasmania</option>
     </select>
   </div>
 
@@ -213,5 +217,5 @@
       </div>
     </div>
 
-  <input id='submit' type='submit' value='create client'/>
+  <input id='submit' type='submit' value='update client'/>
 </form>

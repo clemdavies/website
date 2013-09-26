@@ -1,4 +1,4 @@
-<div class='attribute'>
+<div id='attribute_{{@attribute->getId()}}' class='attribute'>
   <check if="{{@attribute->getType() == 'bool_attribute'}}" >
     <input class='double_height' name='{{@attribute->getName()}}' id='{{@attribute->getName()}}' type='checkbox' />
     <label class='double_height' for='{{@attribute->getName()}}'>{{@attribute->getName()}}</label>

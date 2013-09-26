@@ -15,7 +15,7 @@ Class ExpType{
     if (!( $type->getId() )){
     // invalid params.type
       $f3->set( 'SESSION.error','invalid type' );
-      $f3->reroute( '/expandata/client' );
+      $f3->reroute( '/expandata/clients' );
     }
     $clients = $factory->selectAllByType( $type );
     if ($clients){
