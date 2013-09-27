@@ -118,7 +118,7 @@ Class ExpNewClient{
     }
     //attributes are saved
 
-    // reroute to view all clients
+    // reroute to view this client
     $f3->reroute('/expandata/client/' . $client->getId());
   }
 
