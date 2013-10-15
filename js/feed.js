@@ -228,15 +228,15 @@ function Feed(){
   this.loadMoreArticles = function(){
     var self = this;
     var data = this.retrieveLastArticleData();
-    $.getJSON('feed',data,function(response){
+    $.getJSON(HOME+'feed',data,function(response){
         self.insertArticles(response);
+        console.log(response);
 
     });
   }
 
   this.insertArticles = function(data){
-
-    $('.article.container').last().after(data.articles);
+    $('.feed_article_link').last().after(data.articles);
     this.findLastArticle();
     if(!(data.more)){
       loadIcon.detach();
@@ -244,7 +244,6 @@ function Feed(){
   }
 
   this.retrieveLastArticleData = function(){
-
     var data  = {};
     data.date = lastArticle.attr('datetime');
     data.id   = lastArticle.attr('article_id');
@@ -254,7 +253,7 @@ function Feed(){
 
 
   this.findLastArticle = function(){
-    this.setLastArticle($('.article.content').last());
+    this.setLastArticle($('.feed_article_content').last());
   }
   this.setLastArticle = function(newLastArticle){
     lastArticle = newLastArticle;

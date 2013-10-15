@@ -22,7 +22,7 @@ Class Feed{
     $result['articles'] = '';
     foreach($articles as $article){
       $f3->set('article',$article);
-      $result['articles'] .= Template::instance()->render('/feed/article.html');
+      $result['articles'] .= Template::instance()->render('/feed/new.article.html');
     }
     $result['more'] = $this->articlesAvailableTWO($articles,$date,$f3);
 
@@ -51,7 +51,7 @@ Class Feed{
     $f3->set('articles',$articles);
 
 
-    return Template::instance()->render('/feed/feed.html');
+    return Template::instance()->render('/feed/new.feed.html');
 
   }
 

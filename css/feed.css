@@ -2,6 +2,50 @@
   feed.css
 */
 
+
+/* START FEED */
+
+.feed_article_container
+{
+  color:white;
+  height:100px;
+  margin-top:20px;
+}
+.feed_article_image
+{
+  left:0px;
+  position:absolute;
+}
+.feed_article_image img
+{
+}
+.feed_article_content
+{
+  height:100px;
+  padding-left:100px;
+  position:relative;
+  background-color:#161616;
+}
+.feed_article_title
+{
+  text-align:center;
+}
+
+.feed_article_link
+{
+  text-decoration:none;
+}
+
+.load.icon
+{
+  text-align:center;
+  margin:30px 0 0 0;
+}
+/* END FEED */
+
+
+
+/*
 .article.container
 {
   margin:0 0 0 45px;
@@ -47,12 +91,12 @@
   position:relative;
   padding:5px;
 }
-
+*/
 .border:hover
 {
   /*cursor:pointer;*/
 }
-
+/*
 .category.image.border
 {
   width:100px;
@@ -68,7 +112,7 @@
   position:relative;
   z-index:2;
 }
-
+*/
 .load.icon
 {
   text-align:center;

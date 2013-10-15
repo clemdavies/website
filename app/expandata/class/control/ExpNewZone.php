@@ -7,7 +7,7 @@ Class ExpNewZone{
 
 
     //$f3->set('zones',$factory->selectAll());
-    $f3->set('zones',[]);
+    $f3->set('zones',array());
     $f3->set('title','new zone');
 
     $f3->set('content',Template::instance()->render('/expandata/newZone.html'));

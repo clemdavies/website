@@ -28,6 +28,7 @@ $f3->map( '/expandata' , 'ExpHome' );
 
 
 /* client */
+
 $f3->map( '/expandata/clients'            , 'ExpClient'     );
 $f3->map( '/expandata/clients/unassigned' , 'ExpUnassigned' );
 $f3->map( '/expandata/clients/@type'      , 'ExpType'       );
@@ -43,11 +44,15 @@ $f3->map( '/expandata/new/client/type/ajax'      , 'ExpNewTypeAjax'      );
 $f3->map( '/expandata/new/client/attribute/ajax' , 'ExpNewAttributeAjax' );
 
 /* property */
-$f3->map( '/expandata/properties'                     , 'ExpProperty' );//list all properties
-$f3->map( '/expandata/properties/unassigned/features' , 'ExpUnassignedFeature' );//list all properties with unassigned features
-$f3->map( '/expandata/properties/unassigned/styles'   , 'ExpUnassignedStyle' );//list all properties with unassigned styles
-$f3->map( '/expandata/properties/@feature'            , 'ExpFeature'  );//list all properties with 'x' feature
-$f3->map( '/expandata/properties/@style'              , 'ExpStyle'    );//list all property with 'x' style
+
+$f3->map( '/expandata/properties'                     , 'ExpProperty' );
+$f3->map( '/expandata/properties/unassigned/features' , 'ExpUnassignedFeature' );
+$f3->map( '/expandata/properties/unassigned/styles'   , 'ExpUnassignedStyle' );
+
+$f3->map( '/expandata/properties/unassigned/zones' , 'ExpUnassignedZone' );
+$f3->map( '/expandata/properties/feature/@feature' , 'ExpFeature' );
+$f3->map( '/expandata/properties/style/@style'     , 'ExpStyle' );
+$f3->map( '/expandata/properties/zone/@zone'       , 'ExpZone' );
 
 $f3->map( '/expandata/property/@id'      , 'ExpViewProperty' );
 $f3->map( '/expandata/property/@id/edit' , 'ExpEditProperty' );
@@ -55,11 +60,13 @@ $f3->map( '/expandata/property/@id/edit' , 'ExpEditProperty' );
 $f3->map( '/expandata/new/property'         , 'ExpNewProperty' );
 $f3->map( '/expandata/new/property/style'   , 'ExpNewStyle'    );
 $f3->map( '/expandata/new/property/feature' , 'ExpNewFeature'  );
+$f3->map( '/expandata/new/property/zone'    , 'ExpNewZone'     );
+
 
 /* END EXPANDATA DATABASE APP END */
 
-//$f3->map( '/'              , 'Splash'  );
 $f3->map( '/'               , 'Home'    );
+
 $f3->map( '/archive'        , 'Archive' );
 $f3->map( '/contact'        , 'Contact' );
 $f3->map( '/code'           , 'Code'    );
